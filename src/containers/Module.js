@@ -1,13 +1,21 @@
 import { connect } from 'react-redux';
 import Module from '../components/Module';
-import { addModule } from '../actions'
+import { addModule, removeModule } from '../actions'
 
-const mapStateToProps = (state, ownProps) => ({
-  
-});
+const mapStatetoProps = (state, ownProps) => {
+  let value = 0;
+  if (state.ship.modules[ownProps.name]) {
+    value = state.ship.modules[ownProps.name].count;
+  }
+  return {
+    value: value,
+    ...ownProps
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
-  onIncrease: data => dispatch(addModule(data))
+  onIncrease: data => dispatch(addModule(data)),
+  onDecrease: data => dispatch(removeModule(data))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Module);
+export default connect(mapStatetoProps, mapDispatchToProps)(Module);

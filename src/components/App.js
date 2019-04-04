@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GeneralSettings from '../containers/GeneralSettings';
 import DisplayShip from '../containers/DisplayShip';
 import HullTypes from '../components/HullTypes';
+import Modules from '../containers/Modules';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
             <Form>
               <GeneralSettings />
               <HullTypes />
+              <Modules />
               <DisplayShip />
             </Form>
           </Container>

@@ -13,7 +13,7 @@ let defaultShip = {
     hardpoints: 0,
     class: ''
   },
-  modules: [],
+  modules: {},
   derivedStats: {
     cost: 0,
     power: 0,
@@ -25,13 +25,69 @@ let defaultShip = {
 const ship = (state = defaultShip, action) => {
   switch (action.type) {
     case 'SET_HULL_TYPE':
-      return Object.assign({}, state, {baseStats: action.hullData});
+      return Object.assign({}, state, {baseStats: action.hullData, modules: {}});
     case 'ADD_MODULE':
-      let newModules = [...state.modules, action.moduleData];
-      return Object.assign({}, state, {modules: newModules})
+      if (state.modules[action.moduleData.name]) {
+        // If the module already is in there
+        return {
+          ...state,
+          modules: {
+            ...state.modules,
+            [action.moduleData.name]: {
+              ...state.modules[action.moduleData.name],
+              count: state.modules[action.moduleData.name].count + 1
+            }
+          }
+        }
+      } else {
+        // Otherwise, add a new module
+        return {
+          ...state,
+          modules: {
+            ...state.modules,
+            [action.moduleData.name]: {
+              cost: action.moduleData.cost,
+              power: action.moduleData.power,
+              mass: action.moduleData.mass,
+              description: action.moduleData.description,
+              count: 1,
+            }
+          }
+        }
+      }
+    case 'REMOVE_MODULE':
+      if (state.modules[action.moduleData.name].count > 1) {
+        return {
+          ...state,
+          modules: {
+            ...state.modules,
+            [action.moduleData.name]: {
+              ...state.modules[action.moduleData.name],
+              count: state.modules[action.moduleData.name].count - 1
+            }
+          }
+        }
+      } else {
+        const { [action.moduleData.name]: value, ...newModules } = state.modules;
+        return {
+          ...state,
+          modules: {
+            ...newModules
+          }
+        }
+      }
     default:
       return state;
   }
 };
 
 export default ship;
+
+/* Modules should look like this:
+modules: {
+  <key>: {
+    count: <count>,
+    ...<all other module data>
+  }
+}
+*/

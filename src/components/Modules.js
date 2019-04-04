@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Table, Row, Col, Input } from 'reactstrap';
-import formatCost from '../utils/formatCost';
+import { Table, Row, Col } from 'reactstrap';
+import PropTypes from 'prop-types';
 import HullTypes from './HullTypes'
+import Module from '../containers/Module';
 
 const moduleData = require('../utils/module_data.json');
 
@@ -10,11 +11,38 @@ class Modules extends Component {
     super();
     this.moduleSelector = this.moduleSelector.bind(this);
     this.reminingPoints = this.reminingPoints.bind(this);
-    this.hasMounted = false;
   }
 
-  state = {
-    modules: []
+  // Some modules cost more money the bigger the ship.
+  static moduleCostModifier(hullClass, modified, cost) {
+    if (modified) {
+      if (hullClass === "Frigate") {
+        return cost*10;
+      }
+      else if (hullClass === "Cruiser") {
+        return cost*25;
+      }
+      else if (hullClass === "Capital") {
+        return cost*100;
+      }
+    }
+    return cost
+  }
+
+  // Some modules increase the power consumption on bigger ships.
+  static powerMassCostModifier(hullClass, modified, cost) {
+    if (modified) {
+      if (hullClass === "Frigate") {
+        return Math.ceil(cost*2);
+      }
+      else if (hullClass === "Cruiser") {
+        return Math.ceil(cost*3);
+      }
+      else if (hullClass === "Capital") {
+        return Math.ceil(cost*4);
+      }
+    }
+    return cost
   }
 
   moduleSelector(event, index) {
@@ -63,38 +91,6 @@ class Modules extends Component {
     });
   }
 
-  // Some modules cost more money the bigger the ship.
-  static moduleCostModifier(hullClass, modified, cost) {
-    if (modified) {
-      if (hullClass === "Frigate") {
-        return cost*10;
-      }
-      else if (hullClass === "Cruiser") {
-        return cost*25;
-      }
-      else if (hullClass === "Capital") {
-        return cost*100;
-      }
-    }
-    return cost
-  }
-
-  // Some modules increase the power consumption on bigger ships.
-  static powerMassCostModifier(hullClass, modified, cost) {
-    if (modified) {
-      if (hullClass === "Frigate") {
-        return Math.ceil(cost*2);
-      }
-      else if (hullClass === "Cruiser") {
-        return Math.ceil(cost*3);
-      }
-      else if (hullClass === "Capital") {
-        return Math.ceil(cost*4);
-      }
-    }
-    return cost
-  }
-
   static hullSupportsModifier(modifierHull, shipHull) {
     return HullTypes.getHullValue(modifierHull) <= HullTypes.getHullValue(shipHull);
   }
@@ -108,25 +104,18 @@ class Modules extends Component {
     return true;
   }
 
-  componentDidMount() {
-    this.hasMounted = true;
-  }
-
   render() {
     let rows = [];
     moduleData.forEach((element, index) => {
       rows.push(
-        <tr key={index}>
-          <td>{element.shipFitting}</td>
-          <td>{formatCost(Modules.moduleCostModifier(this.props.hullClass, element.costModifier, element.cost * this.props.modifier))}</td>
-          <td>{Modules.powerMassCostModifier(this.props.hullClass, element.powerModifier, element.power)}</td>
-          <td>{Modules.powerMassCostModifier(this.props.hullClass, element.massModifier, element.mass)}</td>
-          <td>{element.class}</td>
-          <td>{element.description}</td>
-          <td><Input bsSize="sm" type="number" defaultValue={this.hasMounted ? undefined : "0"} step="1" min="0" max="99" 
-              onInput={(e) => {this.moduleSelector(e, index)}} /></td>
-          {/* <td><NumericInput min={0} max={99} value="0" /></td> */}
-        </tr>
+        <Module key={index}
+          name={element.shipFitting}
+          hullClass={element.class}
+          cost={Modules.moduleCostModifier(this.props.hullClass, element.costModifier, element.cost * this.props.modifier)}
+          mass={Modules.powerMassCostModifier(this.props.hullClass, element.massModifier, element.mass)}
+          power={Modules.powerMassCostModifier(this.props.hullClass, element.powerModifier, element.power)}
+          description={element.description}
+        />
       )
     });
 
@@ -156,6 +145,11 @@ class Modules extends Component {
       </div>
     )
   }
+}
+
+Modules.propTypes = {
+  hullClass: PropTypes.string.isRequired,
+  modifier: PropTypes.number.isRequired
 }
 
 export default Modules
