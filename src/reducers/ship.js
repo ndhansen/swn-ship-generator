@@ -22,10 +22,27 @@ let defaultShip = {
   }
 };
 
+const getDerivedStats = (state) => {
+  let cost = state.baseStats.cost;
+  let power = state.baseStats.power;
+  let mass = state.baseStats.mass;
+  state.modules.forEach(module => {
+    cost += module.cost * module.count;
+    power += module.power * module.count;
+    mass += module.mass * module.count;
+  });
+  return {
+    cost: cost,
+    power: power,
+    mass: mass,
+    hardpoints: 0
+  }
+}
+
 const ship = (state = defaultShip, action) => {
   switch (action.type) {
     case 'SET_HULL_TYPE':
-      return Object.assign({}, state, {baseStats: action.hullData, modules: {}});
+      return Object.assign({}, state, {baseStats: action.hullData, modules: {}, derivedStats: getDerivedStats(state)});
     case 'ADD_MODULE':
       if (state.modules[action.moduleData.name]) {
         // If the module already is in there
@@ -37,7 +54,8 @@ const ship = (state = defaultShip, action) => {
               ...state.modules[action.moduleData.name],
               count: state.modules[action.moduleData.name].count + 1
             }
-          }
+          },
+          derivedStats: getDerivedStats(state)
         }
       } else {
         // Otherwise, add a new module
@@ -52,7 +70,8 @@ const ship = (state = defaultShip, action) => {
               description: action.moduleData.description,
               count: 1,
             }
-          }
+          },
+          derivedStats: getDerivedStats(state)
         }
       }
     case 'REMOVE_MODULE':
@@ -65,7 +84,8 @@ const ship = (state = defaultShip, action) => {
               ...state.modules[action.moduleData.name],
               count: state.modules[action.moduleData.name].count - 1
             }
-          }
+          },
+          derivedStats: getDerivedStats(state)
         }
       } else {
         const { [action.moduleData.name]: value, ...newModules } = state.modules;
@@ -73,7 +93,8 @@ const ship = (state = defaultShip, action) => {
           ...state,
           modules: {
             ...newModules
-          }
+          },
+          derivedStats: getDerivedStats(state)
         }
       }
     default:

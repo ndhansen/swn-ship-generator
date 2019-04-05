@@ -43,7 +43,6 @@ class Module extends Component {
 
 Module.propTypes = {
   value: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   cost: PropTypes.number.isRequired,
   power: PropTypes.number.isRequired,
