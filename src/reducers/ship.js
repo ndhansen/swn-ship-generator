@@ -26,11 +26,12 @@ const getDerivedStats = (state) => {
   let cost = state.baseStats.cost;
   let power = state.baseStats.power;
   let mass = state.baseStats.mass;
-  state.modules.forEach(module => {
-    cost += module.cost * module.count;
-    power += module.power * module.count;
-    mass += module.mass * module.count;
-  });
+  for (let moduleName in state.modules) {
+    console.log(state.modules[moduleName]);
+    cost += state.modules[moduleName].cost * state.modules[moduleName].count;
+    power -= state.modules[moduleName].power * state.modules[moduleName].count;
+    mass -= state.modules[moduleName].mass * state.modules[moduleName].count;
+  }
   return {
     cost: cost,
     power: power,
@@ -39,14 +40,38 @@ const getDerivedStats = (state) => {
   }
 }
 
+const isValidState = (state) => {
+  if (state.derivedStats.power < 0 || 
+      state.derivedStats.mass < 0 ||
+      state.derivedStats.hardpoints < 0 ||
+      state.derivedStats.power > state.baseStats.power ||
+      state.derivedStats.mass > state.baseStats.mass ||
+      state.derivedStats.hardpoints > state.baseStats.mass) {
+    return false;
+  }
+  return true;
+}
+
+const submitValidState = (oldState, newState) => {
+  newState = {
+    ...newState,
+    derivedStats: getDerivedStats(newState)
+  }
+  if (isValidState(newState)) {
+    return newState;
+  }
+  return oldState;
+}
+
 const ship = (state = defaultShip, action) => {
   switch (action.type) {
     case 'SET_HULL_TYPE':
-      return Object.assign({}, state, {baseStats: action.hullData, modules: {}, derivedStats: getDerivedStats(state)});
+      let newState = Object.assign({}, state, {baseStats: action.hullData, modules: {}});
+      return submitValidState(state, newState);
     case 'ADD_MODULE':
       if (state.modules[action.moduleData.name]) {
         // If the module already is in there
-        return {
+        let newState ={
           ...state,
           modules: {
             ...state.modules,
@@ -55,11 +80,12 @@ const ship = (state = defaultShip, action) => {
               count: state.modules[action.moduleData.name].count + 1
             }
           },
-          derivedStats: getDerivedStats(state)
         }
+        return submitValidState(state, newState);
+
       } else {
         // Otherwise, add a new module
-        return {
+        let newState = {
           ...state,
           modules: {
             ...state.modules,
@@ -70,9 +96,9 @@ const ship = (state = defaultShip, action) => {
               description: action.moduleData.description,
               count: 1,
             }
-          },
-          derivedStats: getDerivedStats(state)
+          }
         }
+        return submitValidState(state, newState);
       }
     case 'REMOVE_MODULE':
       if (state.modules[action.moduleData.name].count > 1) {
