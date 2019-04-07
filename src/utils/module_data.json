@@ -7,7 +7,10 @@
 	"mass": 2,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Skill Bonus for analysis and research"
+	"description": "Skill Bonus for analysis and research",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Advanced Nav Computer",
 	"cost": 10000,
@@ -17,7 +20,10 @@
 	"mass": 0,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Adds +2 for travelling familiar spike courses"
+	"description": "Adds +2 for travelling familiar spike courses",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Amphibious operation",
 	"cost": 25000,
@@ -27,7 +33,11 @@
 	"mass": 1,
 	"massModifier": true,
 	"class": "Fighter",
-	"description": "Can land and operate under water"
+	"description": "Can land and operate under water",
+	"extra": {
+		"max": 1,
+		"maxClass": "Frigate"
+	}
 },{
 	"shipFitting": "Armory",
 	"cost": 10000,
@@ -37,7 +47,10 @@
 	"mass": 0,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Weapons and armor for the crew"
+	"description": "Weapons and armor for the crew",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Atmospheric Configuration",
 	"cost": 5000,
@@ -47,7 +60,11 @@
 	"mass": 1,
 	"massModifier": true,
 	"class": "Fighter",
-	"description": "Can land: frigates and fighters only."
+	"description": "Can land: frigates and fighters only.",
+	"extra": {
+		"max": 1,
+		"maxClass": "Frigate"
+	}
 },{
 	"shipFitting": "Auto-Targeting System",
 	"cost": 50000,
@@ -67,7 +84,10 @@
 	"mass": 1,
 	"massModifier": false,
 	"class": "Fighter",
-	"description": "Ship can use simple robots as crew"
+	"description": "Ship can use simple robots as crew",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Boarding Tubes",
 	"cost": 5000,
@@ -77,7 +97,10 @@
 	"mass": 1,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Launches a boarding attack on an enemy ship"
+	"description": "Launches a boarding attack on an enemy ship",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Cargo Lighter",
 	"cost": 25000,
@@ -117,7 +140,10 @@
 	"mass": 2,
 	"massModifier": true,
 	"class": "Frigate",
-	"description": "Ship can be deconstructed into a colony base"
+	"description": "Ship can be deconstructed into a colony base",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Drill Course Regulator",
 	"cost": 25000,
@@ -127,7 +153,10 @@
 	"mass": 1,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Common drill routes become auto-successes"
+	"description": "Common drill routes become auto-successes",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Drop Pod",
 	"cost": 300000,
@@ -207,7 +236,10 @@
 	"mass": 1,
 	"massModifier": true,
 	"class": "Frigate",
-	"description": "The ship can scoop fuel from a gas giant or star"
+	"description": "The ship can scoop fuel from a gas giant or star",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Hydroponic Production",
 	"cost": 10000,
@@ -267,7 +299,10 @@
 	"mass": 0,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Allows a precog to assist in navigation"
+	"description": "Allows a precog to assist in navigation",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Sensor Mask",
 	"cost": 10000,
@@ -277,7 +312,10 @@
 	"mass": 0,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "At long distance, disguise ship as another"
+	"description": "At long distance, disguise ship as another",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Ship Bay/Fighter",
 	"cost": 200000,
@@ -317,7 +355,10 @@
 	"mass": 1,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Allow another ship to hich on a spike drive"
+	"description": "Allow another ship to hich on a spike drive",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Smuggler's Hold",
 	"cost": 2500,
@@ -337,7 +378,10 @@
 	"mass": 1,
 	"massModifier": false,
 	"class": "Frigate",
-	"description": "Improved planetary sensory array"
+	"description": "Improved planetary sensory array",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Tractor beams",
 	"cost": 10000,
@@ -357,7 +401,10 @@
 	"mass": 1,
 	"massModifier": true,
 	"class": "Frigate",
-	"description": "Halve tonnage space of carried vehicles"
+	"description": "Halve tonnage space of carried vehicles",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Workshop",
 	"cost": 500,
@@ -367,5 +414,8 @@
 	"mass": 0.5,
 	"massModifier": true,
 	"class": "Frigate",
-	"description": "Automated tech workshops for maintenance"
+	"description": "Automated tech workshops for maintenance",
+	"extra": {
+		"max": 1
+	}
 }]

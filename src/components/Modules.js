@@ -9,7 +9,6 @@ const moduleData = require('../utils/module_data.json');
 class Modules extends Component {
   constructor() {
     super();
-    this.moduleSelector = this.moduleSelector.bind(this);
     this.reminingPoints = this.reminingPoints.bind(this);
   }
 
@@ -45,52 +44,6 @@ class Modules extends Component {
     return cost
   }
 
-  moduleSelector(event, index) {
-    let value = parseInt(event.currentTarget.value);
-
-    if (!Modules.hullSupportsModifier(moduleData[index].class, this.props.hullClass) ||
-        !this.reminingPoints(moduleData[index])) {
-      console.log("Couldn't add the module")
-      event.currentTarget.value = value > 0 ? value - 1 : 0;
-      return;
-    }
-
-    let modules = this.state.modules.slice();
-
-    // If something was just set to 0, delete it from the list
-    if (value === 0) {
-      modules = modules.filter(module => module.index !== index);
-    }
-    else {
-      // If it already is in the list of selected modules, change it.
-      let found = false;
-      modules.forEach((module) => {
-        if (module.index === index) {
-          found = true;
-          module.count = value;
-        }
-      });
-
-      // If it's not in the list, add it
-      if (found === false) {
-        modules.push({index: index, count: value});
-      }
-    }
-
-    const newState = Object.assign({}, this.state, {modules: modules});
-    this.setState(newState);
-
-    let parentModules = [];
-    modules.forEach(module => {
-      let data = moduleData[module.index];
-      data.count = module.count;
-      parentModules.push(data);
-    });
-    this.props.Update({
-      modules: parentModules
-    });
-  }
-
   static hullSupportsModifier(modifierHull, shipHull) {
     return HullTypes.getHullValue(modifierHull) <= HullTypes.getHullValue(shipHull);
   }
@@ -107,16 +60,19 @@ class Modules extends Component {
   render() {
     let rows = [];
     moduleData.forEach((element, index) => {
-      rows.push(
-        <Module key={index}
-          name={element.shipFitting}
-          hullClass={element.class}
-          cost={Modules.moduleCostModifier(this.props.hullClass, element.costModifier, element.cost * this.props.modifier)}
-          mass={Modules.powerMassCostModifier(this.props.hullClass, element.massModifier, element.mass)}
-          power={Modules.powerMassCostModifier(this.props.hullClass, element.powerModifier, element.power)}
-          description={element.description}
-        />
-      )
+      if (Modules.hullSupportsModifier(element.class, this.props.hullClass)) {
+        rows.push(
+          <Module key={index}
+            name={element.shipFitting}
+            hullClass={element.class}
+            cost={Modules.moduleCostModifier(this.props.hullClass, element.costModifier, element.cost * this.props.modifier)}
+            mass={Modules.powerMassCostModifier(this.props.hullClass, element.massModifier, element.mass)}
+            power={Modules.powerMassCostModifier(this.props.hullClass, element.powerModifier, element.power)}
+            description={element.description}
+            extra={element.extra}
+          />
+        );
+      }
     });
 
     return(

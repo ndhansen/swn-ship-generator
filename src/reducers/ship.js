@@ -52,6 +52,7 @@ const isValidState = (state) => {
   return true;
 }
 
+// Only submits the new state if it's valid
 const submitValidState = (oldState, newState) => {
   newState = {
     ...newState,
@@ -71,7 +72,7 @@ const ship = (state = defaultShip, action) => {
     case 'ADD_MODULE':
       if (state.modules[action.moduleData.name]) {
         // If the module already is in there
-        let newState ={
+        let newState = {
           ...state,
           modules: {
             ...state.modules,
@@ -82,7 +83,6 @@ const ship = (state = defaultShip, action) => {
           },
         }
         return submitValidState(state, newState);
-
       } else {
         // Otherwise, add a new module
         let newState = {
@@ -102,7 +102,7 @@ const ship = (state = defaultShip, action) => {
       }
     case 'REMOVE_MODULE':
       if (state.modules[action.moduleData.name].count > 1) {
-        return {
+        let newState = {
           ...state,
           modules: {
             ...state.modules,
@@ -111,17 +111,17 @@ const ship = (state = defaultShip, action) => {
               count: state.modules[action.moduleData.name].count - 1
             }
           },
-          derivedStats: getDerivedStats(state)
         }
+        return submitValidState(state, newState);
       } else {
         const { [action.moduleData.name]: value, ...newModules } = state.modules;
-        return {
+        let newState = {
           ...state,
           modules: {
             ...newModules
           },
-          derivedStats: getDerivedStats(state)
         }
+        return submitValidState(state, newState);
       }
     default:
       return state;
