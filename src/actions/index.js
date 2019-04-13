@@ -23,3 +23,13 @@ export const removeModule = moduleData => ({
   type: 'REMOVE_MODULE',
   moduleData
 });
+
+export const addWeapon = weaponData => ({
+  type: 'ADD_WEAPON',
+  weaponData
+});
+
+export const removeWeapon = weaponData => ({
+  type: 'REMOVE_WEAPON',
+  weaponData
+});

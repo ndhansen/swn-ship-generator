@@ -7,11 +7,6 @@ import Module from '../containers/Module';
 const moduleData = require('../utils/module_data.json');
 
 class Modules extends Component {
-  constructor() {
-    super();
-    this.reminingPoints = this.reminingPoints.bind(this);
-  }
-
   // Some modules cost more money the bigger the ship.
   static moduleCostModifier(hullClass, modified, cost) {
     if (modified) {
@@ -48,18 +43,13 @@ class Modules extends Component {
     return HullTypes.getHullValue(modifierHull) <= HullTypes.getHullValue(shipHull);
   }
 
-  reminingPoints(module) {
-    let modulePowerCost = Modules.powerMassCostModifier(this.props.hullClass, module.powerModifier, module.power);
-    let moduleMassCost = Modules.powerMassCostModifier(this.props.hullClass, module.massModifier, module.mass);
-    let currentStats = this.props.ShipStats.currentStats;
-    if (currentStats.power - modulePowerCost < 0) { return false; }
-    else if (currentStats.mass - moduleMassCost < 0) { return false; }
-    return true;
-  }
-
   render() {
     let rows = [];
     moduleData.forEach((element, index) => {
+      if (element.extra && (HullTypes.getHullValue(element.extra.maxClass) < HullTypes.getHullValue(this.props.hullClass))) {
+        // This module won't work on a too big ship
+        return;
+      }
       if (Modules.hullSupportsModifier(element.class, this.props.hullClass)) {
         rows.push(
           <Module key={index}
@@ -82,7 +72,7 @@ class Modules extends Component {
             <h3>Modules</h3>
           </Col>
         </Row>
-        <Table striped size="sm">
+        <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
               <th>Ship Fitting</th>

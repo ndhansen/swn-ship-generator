@@ -5,14 +5,23 @@ import PropTypes from 'prop-types';
 class DisplayShip extends Component {
   render() {
     let stats = this.props.shipStats;
-    // let modules = [];
-    // this.props.ShipStats.modules.forEach((module, index) => {
-    //   modules.push(
-    //     <Row key={index}>
-    //       <Col>{module.shipFitting}</Col>
-    //     </Row>
-    //   );
-    // });
+    let modules = [];
+    for (const [key, module] of Object.entries(this.props.modules)) {
+      modules.push(
+        <Row key={key}>
+          <Col>{key} x{module.count}</Col>
+        </Row>
+      );
+    };
+
+    let weapons = [];
+    for (const [key, weapon] of Object.entries(this.props.weapons)) {
+      weapons.push(
+        <Row key={key}>
+          <Col>{key} x{weapon.count}</Col>
+        </Row>
+      );
+    };
 
     return (
       <Row className="justify-content-md-center">
@@ -51,7 +60,13 @@ class DisplayShip extends Component {
               <tr>
                 <td style={{textAlign: "right", verticalAlign: "middle"}} sm={2}>Fittings:</td>
                 <td sm={10} colSpan="3">
-                  {/* {modules} */}
+                  {modules}
+                </td>
+              </tr>
+              <tr>
+                <td style={{textAlign: "right", verticalAlign: "middle"}} sm={2}>Weapons:</td>
+                <td sm={10} colSpan="3">
+                  {weapons}
                 </td>
               </tr>
             </tbody>

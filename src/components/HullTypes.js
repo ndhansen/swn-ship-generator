@@ -29,7 +29,7 @@ class HullTypes extends Component {
             <h3>Ship types</h3>
           </Col>
         </Row>
-        <Table striped size="sm">
+        <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
               <th>Hull Type</th>

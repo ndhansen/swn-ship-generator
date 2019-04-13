@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Spike Drive 1",
+    "cost": 0,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": true,
+    "mass": 0,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Default ship drive"
+  },
+  {
+    "name": "Spike Drive 2",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Upgrade to a drive-2 rating"
+  },
+  {
+    "name": "Spike Drive 3",
+    "cost": 20000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": true,
+    "mass": 2,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Upgrade to a drive-3 rating"
+  },
+  {
+    "name": "Spike Drive 4",
+    "cost": 40000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": true,
+    "mass": 3,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Upgrade to a drive-4 rating"
+  },
+  {
+    "name": "Spike Drive 5",
+    "cost": 100000,
+    "costModifier": true,
+    "power": 3,
+    "powerModifier": true,
+    "mass": 3,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Upgrade to a drive-5 rating"
+  },
+  {
+    "name": "Spike Drive 6",
+    "cost": 500000,
+    "costModifier": true,
+    "power": 3,
+    "powerModifier": true,
+    "mass": 4,
+    "massModifier": true,
+    "minClass": "Cruiser",
+    "description": "Upgrade to a drive-6 rating"
+  }
+]

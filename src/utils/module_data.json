@@ -176,7 +176,10 @@
 	"mass": 1,
 	"massModifier": true,
 	"class": "Fighter",
-	"description": "Adds +2 to difficulty of locating the ship"
+	"description": "Adds +2 to difficulty of locating the ship",
+	"extra": {
+		"max": 1
+	}
 },{
 	"shipFitting": "Exodus Bay",
 	"cost": 50000,
@@ -186,7 +189,7 @@
 	"mass": 2,
 	"massModifier": true,
 	"class": "Cruiser",
-	"description": "Adds +2 to skill checks to avoid detection"
+	"description": "House vast numbers of cold sleep passengers"
 },{
 	"shipFitting": "Extended Life Support",
 	"cost": 5000,

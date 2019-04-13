@@ -1,0 +1,31 @@
+.compact-text {
+  margin-bottom: 0.5rem;
+}
+
+.sticky {
+  position: sticky;
+  top: 1rem;
+}
+
+.side-table {
+  width: auto !important;
+  /* margin-left: auto; */
+  margin-right: auto;
+}
+
+.side-table td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.centerTable {
+  text-align: center;
+}
+
+.centerTable thead tr th:first-of-type {
+  text-align: left;
+}
+
+.centerTable tbody tr td:first-of-type {
+  text-align: left;
+}
