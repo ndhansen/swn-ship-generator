@@ -57,7 +57,6 @@ class Module extends Component {
         <td>{formatCost(this.props.cost)}</td>
         <td>{this.props.power}</td>
         <td>{this.props.mass}</td>
-        <td>{this.props.hullClass}</td>
         <td>{this.props.description}</td>
         <td>{input}</td>
       </tr>

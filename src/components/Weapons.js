@@ -31,7 +31,7 @@ class Weapons extends Component {
       <div>
         <Row>
           <Col sm="auto">
-            <h3>Modules</h3>
+            <h3>Weapons</h3>
           </Col>
         </Row>
         <Table className="centerTable" striped size="sm">

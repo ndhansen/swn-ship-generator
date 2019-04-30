@@ -4,6 +4,7 @@ import '../utils/App.css'
 import GeneralSettings from '../containers/GeneralSettings';
 import DisplayShip from '../containers/DisplayShip';
 import HullTypes from '../components/HullTypes';
+import Drives from '../containers/Drives';
 import Modules from '../containers/Modules';
 import Weapons from '../containers/Weapons';
 import SidePanel from '../containers/SidePanel';
@@ -17,6 +18,7 @@ class App extends Component {
             <Form>
               <GeneralSettings />
               <HullTypes />
+              <Drives />
               <Modules />
               <Weapons />
               <DisplayShip />

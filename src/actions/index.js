@@ -9,6 +9,11 @@ export const setCostModifier = modifier => ({
   modifier
 });
 
+export const setName = name => ({
+  type: 'SET_NAME',
+  name
+});
+
 export const setHullType = hullData => ({
   type: 'SET_HULL_TYPE',
   hullData
@@ -32,4 +37,13 @@ export const addWeapon = weaponData => ({
 export const removeWeapon = weaponData => ({
   type: 'REMOVE_WEAPON',
   weaponData
+});
+
+export const setSpikeDrive = driveData => ({
+  type: 'SET_DRIVE',
+  driveData
+});
+
+export const removeSpikeDrive = () => ({
+  type: 'REMOVE_DRIVE'
 });

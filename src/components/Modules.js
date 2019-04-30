@@ -79,7 +79,6 @@ class Modules extends Component {
               <th>Cost</th>
               <th>Power</th>
               <th>Mass</th>
-              <th>Class</th>
               <th>Description</th>
               <th className="col-1"></th>
             </tr>

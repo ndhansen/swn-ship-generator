@@ -5,11 +5,15 @@ import PropTypes from 'prop-types';
 class DisplayShip extends Component {
   render() {
     let stats = this.props.shipStats;
+    let derivedStats = this.props.derivedStats;
     let modules = [];
     for (const [key, module] of Object.entries(this.props.modules)) {
+      if (module.count > 1) {
+
+      }
       modules.push(
         <Row key={key}>
-          <Col>{key} x{module.count}</Col>
+          <Col>{key} {module.count > 1 ? `x${module.count}` : null}</Col>
         </Row>
       );
     };
@@ -37,13 +41,13 @@ class DisplayShip extends Component {
                 <td style={{textAlign: "right"}} sm={2}>HP:</td>
                 <td sm={4}>{stats.hp}</td>
                 <td style={{textAlign: "right"}} sm={3}>Power:</td>
-                <td sm={3}>{stats.power}</td>
+                <td sm={3}>{stats.power}/{derivedStats.power} free</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>AC:</td>
                 <td sm={4}>{stats.ac}</td>
                 <td style={{textAlign: "right"}} sm={3}>Mass:</td>
-                <td sm={3}>{stats.mass}</td>
+                <td sm={3}>{stats.mass}/{derivedStats.mass} free</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>Armor:</td>
@@ -78,7 +82,8 @@ class DisplayShip extends Component {
 }
 
 DisplayShip.propTypes = {
-  shipStats: PropTypes.object.isRequired
+  shipStats: PropTypes.object.isRequired,
+  derivedStats: PropTypes.object.isRequired
 };
 
 export default DisplayShip;

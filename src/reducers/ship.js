@@ -13,6 +13,7 @@ let defaultShip = {
     hardpoints: 0,
     class: ''
   },
+  drive: {},
   modules: {},
   weapons: {},
   derivedStats: {
@@ -45,6 +46,11 @@ const getDerivedStats = (state) => {
   }
 
   // Check drive
+  if (!(Object.entries(state.drive).length === 0 && state.drive.constructor === Object)) {
+    cost += state.drive.cost;
+    power -= state.drive.power;
+    mass -= state.drive.mass;
+  }
 
   // Check defenses
 
@@ -194,10 +200,39 @@ const removeWeapon = (state, weaponData) => {
   }
 }
 
+const setDrive = (state, driveData) => {
+  return {
+    ...state,
+    drive: {
+      name: driveData.name,
+      cost: driveData.cost,
+      power: driveData.power,
+      mass: driveData.mass,
+      description: driveData.description
+    }
+  }
+}
+
+const removeDrive = (state) => {
+  return {
+    ...state,
+    drive: {}
+  }
+}
+
 const ship = (state = defaultShip, action) => {
   switch (action.type) {
     case 'SET_HULL_TYPE': {
-      let newState = Object.assign({}, state, {baseStats: action.hullData, modules: {}, weapons: {}});
+      let newState = Object.assign(
+        {},
+        state, 
+        {
+          baseStats: action.hullData,
+          modules: {},
+          weapons: {},
+          drive:{}
+        }
+      );
       return submitValidState(state, newState);
     }
     case 'ADD_MODULE': {
@@ -214,6 +249,14 @@ const ship = (state = defaultShip, action) => {
     }
     case 'REMOVE_WEAPON': {
       let newState = removeWeapon(state, action.weaponData);
+      return submitValidState(state, newState);
+    }
+    case 'SET_DRIVE': {
+      let newState = setDrive(state, action.driveData);
+      return submitValidState(state, newState);
+    }
+    case 'REMOVE_DRIVE': {
+      let newState = removeDrive(state);
       return submitValidState(state, newState);
     }
     default:
