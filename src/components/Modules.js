@@ -75,12 +75,12 @@ class Modules extends Component {
         <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
-              <th>Ship Fitting</th>
-              <th>Cost</th>
-              <th>Power</th>
-              <th>Mass</th>
-              <th>Description</th>
-              <th className="col-1"></th>
+              <th style={{width: "26.32%"}}>Ship Fitting</th>
+              <th style={{width: "6.33%"}}>Cost</th>
+              <th style={{width: "7.55%"}}>Power</th>
+              <th style={{width: "6.48%"}}>Mass</th>
+              <th style={{width: "44.91%"}}>Description</th>
+              <th style={{width: "8.33%"}}></th>
             </tr>
           </thead>
           <tbody>

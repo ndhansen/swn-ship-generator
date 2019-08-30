@@ -37,15 +37,15 @@ class Weapons extends Component {
         <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
-              <th>Ship Weapon</th>
-              <th>Cost</th>
-              <th>Dmg</th>
-              <th>Power</th>
-              <th>Mass</th>
-              <th>Hard.</th>
-              <th>TL</th>
-              <th>qualities</th>
-              <th className="col-1"></th>
+              <th style={{width: "26.32%"}}>Ship Weapon</th>
+              <th style={{width: "7.01%"}}>Cost</th>
+              <th style={{width: "9.17%"}}>Dmg</th>
+              <th style={{width: "8.3%"}}>Power</th>
+              <th style={{width: "7.15%"}}>Mass</th>
+              <th style={{width: "7.92%"}}>Hard.</th>
+              <th style={{width: "4.27%"}}>TL</th>
+              <th style={{width: "22.13%"}}>qualities</th>
+              <th style={{width: "8.33%"}}></th>
             </tr>
           </thead>
           <tbody>

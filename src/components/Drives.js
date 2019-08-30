@@ -36,12 +36,12 @@ class Drives extends Component {
         <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
-              <th>Ship Drive</th>
-              <th>Cost</th>
-              <th>Power</th>
-              <th>Mass</th>
-              <th>Description</th>
-              <th className="col-1"></th>
+              <th style={{width: "21.03%"}}>Ship Drive</th>
+              <th style={{width: "9.68%"}}>Cost</th>
+              <th style={{width: "11.47%"}}>Power</th>
+              <th style={{width: "9.88%"}}>Mass</th>
+              <th style={{width: "39.56%"}}>Description</th>
+              <th style={{width: "8.33%"}}></th>
             </tr>
           </thead>
           <tbody>
