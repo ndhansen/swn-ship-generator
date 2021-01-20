@@ -1,0 +1,462 @@
+{
+  "Advanced lab": {
+    "name": "Advanced lab",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 2,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Skill Bonus for analysis and research",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Advanced Nav Computer": {
+    "name": "Advanced Nav Computer",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Adds +2 for travelling familiar spike courses",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Amphibious operation": {
+    "name": "Amphibious operation",
+    "cost": 25000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Can land and operate under water",
+    "extra": {
+      "max": 1,
+      "maxClass": "Frigate"
+    }
+  },
+  "Armory": {
+    "name": "Armory",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Weapons and armor for the crew",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Atmospheric Configuration": {
+    "name": "Atmospheric Configuration",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Can land: frigates and fighters only.",
+    "extra": {
+      "max": 1,
+      "maxClass": "Frigate"
+    }
+  },
+  "Auto-Targeting System": {
+    "name": "Auto-Targeting System",
+    "cost": 50000,
+    "costModifier": false,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Fighter",
+    "description": "Fires one weapon system without a gunner"
+  },
+  "Automation Support": {
+    "name": "Automation Support",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Fighter",
+    "description": "Ship can use simple robots as crew",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Boarding Tubes": {
+    "name": "Boarding Tubes",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Launches a boarding attack on an enemy ship",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Cargo Lighter": {
+    "name": "Cargo Lighter",
+    "cost": 25000,
+    "costModifier": false,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 2,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Orbit-to-surface cargo shuttle"
+  },
+  "Cargo Space": {
+    "name": "Cargo Space",
+    "cost": 0,
+    "costModifier": false,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Fighter",
+    "description": "Pressurized cargo space."
+  },
+  "Cold Sleep Pods": {
+    "name": "Cold Sleep Pods",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Keeps occupants in stasis for an indefinite time"
+  },
+  "Colony Core": {
+    "name": "Colony Core",
+    "cost": 100000,
+    "costModifier": true,
+    "power": 4,
+    "powerModifier": false,
+    "mass": 2,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Ship can be deconstructed into a colony base",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Drill Course Regulator": {
+    "name": "Drill Course Regulator",
+    "cost": 25000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Common drill routes become auto-successes",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Drop Pod": {
+    "name": "Drop Pod",
+    "cost": 300000,
+    "costModifier": false,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 2,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Stealthed landing pod for troops"
+  },
+  "Emissions Dampers": {
+    "name": "Emissions Dampers",
+    "cost": 25000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Adds +2 to difficulty of locating the ship",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Exodus Bay": {
+    "name": "Exodus Bay",
+    "cost": 50000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 2,
+    "massModifier": true,
+    "minClass": "Cruiser",
+    "description": "House vast numbers of cold sleep passengers"
+  },
+  "Extended Life Support": {
+    "name": "Extended Life Support",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Doubles maximum crew size"
+  },
+  "Extended Medbay": {
+    "name": "Extended Medbay",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Can provide medical care to more patients"
+  },
+  "Extended Stores": {
+    "name": "Extended Stores",
+    "cost": 2500,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Maximum life support duration is doubled"
+  },
+  "Fuel Bunkers": {
+    "name": "Fuel Bunkers",
+    "cost": 2500,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Fighter",
+    "description": "Adds fuel for one more drill between fuelings"
+  },
+  "Fuel Scoops": {
+    "name": "Fuel Scoops",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "The ship can scoop fuel from a gas giant or star",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Hydroponic Production": {
+    "name": "Hydroponic Production",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 2,
+    "massModifier": true,
+    "minClass": "Cruiser",
+    "description": "Ship produces life support resources"
+  },
+  "Lifeboats": {
+    "name": "Lifeboats",
+    "cost": 2500,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Emergency escape craft for a ship's crew"
+  },
+  "Luxury Cabins": {
+    "name": "Luxury Cabins",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "10% of the crew get luxurious quarters"
+  },
+  "Mobile Extractor": {
+    "name": "Mobile Extractor",
+    "cost": 50000,
+    "costModifier": false,
+    "power": 2,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Apace mining and refinery fittings"
+  },
+  "Mobile factory": {
+    "name": "Mobile factory",
+    "cost": 50000,
+    "costModifier": true,
+    "power": 3,
+    "powerModifier": false,
+    "mass": 2,
+    "massModifier": true,
+    "minClass": "Cruiser",
+    "description": "Self-sustaining factory and repair facilities"
+  },
+  "Precognitive Nav Chamber": {
+    "name": "Precognitive Nav Chamber",
+    "cost": 100000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Allows a precog to assist in navigation",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Sensor Mask": {
+    "name": "Sensor Mask",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": true,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "At long distance, disguise ship as another",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Ship Bay/Fighter": {
+    "name": "Ship Bay/Fighter",
+    "cost": 200000,
+    "costModifier": false,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 2,
+    "massModifier": false,
+    "minClass": "Cruiser",
+    "description": "Carrier housing for a fighter"
+  },
+  "Ship Bay/Frigate": {
+    "name": "Ship Bay/Frigate",
+    "cost": 1000000,
+    "costModifier": false,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 4,
+    "massModifier": false,
+    "minClass": "Capital",
+    "description": "Carrier housing for a frigate"
+  },
+  "Ship's Locker": {
+    "name": "Ship's Locker",
+    "cost": 2000,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 0,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Survey and exploration equipment for the crew"
+  },
+  "Shiptender mount": {
+    "name": "Shiptender mount",
+    "cost": 25000,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Allow another ship to hich on a spike drive",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Smuggler's Hold": {
+    "name": "Smuggler's Hold",
+    "cost": 2500,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Fighter",
+    "description": "Small amount of well-hidden cargo space"
+  },
+  "Survey Sensor Array": {
+    "name": "Survey Sensor Array",
+    "cost": 5000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Improved planetary sensory array",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Tractor beams": {
+    "name": "Tractor beams",
+    "cost": 10000,
+    "costModifier": true,
+    "power": 2,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": false,
+    "minClass": "Frigate",
+    "description": "Manipulate objects in space at a distance"
+  },
+  "Vehicle transport fittings": {
+    "name": "Vehicle transport fittings",
+    "cost": 2500,
+    "costModifier": true,
+    "power": 0,
+    "powerModifier": false,
+    "mass": 1,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Halve tonnage space of carried vehicles",
+    "extra": {
+      "max": 1
+    }
+  },
+  "Workshop": {
+    "name": "Workshop",
+    "cost": 500,
+    "costModifier": true,
+    "power": 1,
+    "powerModifier": false,
+    "mass": 0.5,
+    "massModifier": true,
+    "minClass": "Frigate",
+    "description": "Automated tech workshops for maintenance",
+    "extra": {
+      "max": 1
+    }
+  }
+}

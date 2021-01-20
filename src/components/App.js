@@ -3,18 +3,19 @@ import React, { Component } from 'react';
 import '../utils/App.css'
 import GeneralSettings from '../containers/GeneralSettings';
 import DisplayShip from '../containers/DisplayShip';
-import HullTypes from '../components/HullTypes';
+import HullTypes from '../containers/HullTypes';
 import Drives from '../containers/Drives';
 import Modules from '../containers/Modules';
 import Weapons from '../containers/Weapons';
 import SidePanel from '../containers/SidePanel';
+import Options from '../containers/Options';
 
 class App extends Component {
   render() {
     return (
-      <Row className="row justify-content-md-center">
+      <Row className="justify-content-md-center">
         <Col sm="auto">
-          <Container>
+          <Container fluid={true} style={{minWidth: "1000px"}} >
             <Form>
               <GeneralSettings />
               <HullTypes />
@@ -26,7 +27,10 @@ class App extends Component {
           </Container>
         </Col>
         <Col sm="2">
-          <SidePanel />
+          <Row className="sticky">
+            <SidePanel />
+            <Options />
+          </Row>
         </Col>
       </Row>
     );

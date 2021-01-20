@@ -45,5 +45,13 @@ export const setSpikeDrive = driveData => ({
 });
 
 export const removeSpikeDrive = () => ({
-  type: 'REMOVE_DRIVE'
+  type: 'REMOVE_DRIVE',
 });
+
+export const exportShip = () => ({
+  type: 'EXPORT_SHIP',
+})
+
+export const importShip = () => ({
+  type: 'IMPORT_SHIP',
+})

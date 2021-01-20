@@ -2,29 +2,16 @@ import React, { Component } from 'react';
 import { Table, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Weapon from '../containers/Weapon';
-import Modules from './Modules';
-
-const weaponData = require('../utils/weapons.json');
 
 class Weapons extends Component {
   render() {
     let rows = [];
-    weaponData.forEach((element, index) => {
-      if (Modules.hullSupportsModifier(element.minClass, this.props.hullClass)) {
-        rows.push(
-          <Weapon key={index}
-            name={element.name}
-            hullClass={element.minClass}
-            cost={element.cost * this.props.modifier}
-            mass={element.mass}
-            power={element.power}
-            hardpoints={element.hardpoints}
-            damage={element.damage}
-            qualities={element.qualities}
-            techLevel={element.techLevel}
-          />
-        );
-      }
+    this.props.weapons.forEach((element, index) => {
+      rows.push(
+        <Weapon key={index}
+          data={element}
+        />
+      );
     });
 
     return(
@@ -37,15 +24,15 @@ class Weapons extends Component {
         <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
-              <th style={{width: "26.32%"}}>Ship Weapon</th>
-              <th style={{width: "7.01%"}}>Cost</th>
+              <th style={{width: "22.32%"}}>Ship Weapon</th>
+              <th style={{width: "11.01%"}}>Cost</th>
               <th style={{width: "9.17%"}}>Dmg</th>
-              <th style={{width: "8.3%"}}>Power</th>
-              <th style={{width: "7.15%"}}>Mass</th>
-              <th style={{width: "7.92%"}}>Hard.</th>
-              <th style={{width: "4.27%"}}>TL</th>
+              <th style={{width: "7.3%"}}>Power</th>
+              <th style={{width: "6.15%"}}>Mass</th>
+              <th style={{width: "6.92%"}}>Hard.</th>
+              <th style={{width: "3.27%"}}>TL</th>
               <th style={{width: "22.13%"}}>qualities</th>
-              <th style={{width: "8.33%"}}></th>
+              <th style={{width: "12.33%"}}></th>
             </tr>
           </thead>
           <tbody>
@@ -58,8 +45,26 @@ class Weapons extends Component {
 }
 
 Weapons.propTypes = {
-  hullClass: PropTypes.string.isRequired,
-  modifier: PropTypes.number.isRequired
+  hullClass: PropTypes.string,
+  modifier: PropTypes.number.isRequired,
+  weapons: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      cost: PropTypes.number.isRequired,
+      damage: PropTypes.string.isRequired,
+      power: PropTypes.number.isRequired,
+      mass: PropTypes.number.isRequired,
+      hardpoints: PropTypes.number.isRequired,
+      minClass: PropTypes.string.isRequired,
+      techLevel: PropTypes.number.isRequired,
+      qualities: PropTypes.shape({
+        type: PropTypes.arrayOf(PropTypes.string.isRequired),
+        ap: PropTypes.number,
+        ammo: PropTypes.number,
+        ammoCost: PropTypes.number,
+      }).isRequired,
+    })
+  ).isRequired,
 }
 
 export default Weapons

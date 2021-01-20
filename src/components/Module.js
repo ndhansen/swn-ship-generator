@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { Input, Button } from 'reactstrap';
-import PropTypes from 'prop-types';
-import formatCost from '../utils/formatCost';
+import React, { Component } from "react";
+import { Button } from "reactstrap";
+import PropTypes from "prop-types";
+import formatCost from "../utils/formatCost";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
 
 class Module extends Component {
   constructor() {
@@ -12,13 +14,9 @@ class Module extends Component {
 
   moduleChanged(count) {
     let data = {
-      name: this.props.name,
-      cost: this.props.cost,
-      power: this.props.power,
-      mass: this.props.mass,
-      description: this.props.description
+      name: this.props.data.name,
     };
-    if (count > this.props.value) {
+    if (this.props.canIncrease && count > this.props.value) {
       this.props.onIncrease(data);
     } else if (count < this.props.value) {
       this.props.onDecrease(data);
@@ -34,47 +32,71 @@ class Module extends Component {
   }
 
   render() {
-    let input
-    if (this.props.extra && this.props.extra.max === 1) {
-      let active = this.props.value > 0
-      input =
+    let input;
+    if (this.props.data.extra && this.props.data.extra.max === 1) {
+      let active = this.props.value > 0;
+      input = (
         <Button
-            outline 
-            color="success" 
-            size="sm" 
-            onClick={() => this.toggleModule(active)} 
-            active={active}
-            style={{width: "100%"}}>
+          outline
+          disabled={!active && !this.props.canIncrease}
+          color={"primary"}
+          size="sm"
+          onClick={() => this.toggleModule(active)}
+          active={active}
+          style={{ width: "100%" }}
+        >
           Select
         </Button>
+      );
     } else {
-      input = <Input bsSize="sm" type="number" value={this.props.value} step="1" min="0" max="99" 
-          onChange={(e) => {this.moduleChanged(parseInt(e.currentTarget.value))}} />
+      input = (
+        <div>
+          {this.props.value}
+          <AddCircleIcon
+            color={this.props.canIncrease ? "primary" : "disabled"}
+            onClick={(e) => {
+              this.moduleChanged(this.props.value + 1);
+            }}
+          />
+          <RemoveCircleIcon
+            color={this.props.value > 0 ? "primary" : "disabled"}
+            onClick={(e) => {
+              this.moduleChanged(this.props.value - 1);
+            }}
+          />
+        </div>
+      );
     }
+
     return (
       <tr>
-        <td>{this.props.name}</td>
-        <td>{formatCost(this.props.cost)}</td>
-        <td>{this.props.power}</td>
-        <td>{this.props.mass}</td>
-        <td>{this.props.description}</td>
+        <td>{this.props.data.name}</td>
+        <td>{formatCost(this.props.data.cost)}</td>
+        <td>{this.props.data.power}</td>
+        <td>{this.props.data.mass}</td>
+        <td>{this.props.data.description}</td>
         <td>{input}</td>
       </tr>
-    )
+    );
   }
 }
 
 Module.propTypes = {
   value: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  cost: PropTypes.number.isRequired,
-  power: PropTypes.number.isRequired,
-  mass: PropTypes.number.isRequired,
-  hullClass: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  extra: PropTypes.object,
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    cost: PropTypes.number.isRequired,
+    power: PropTypes.number.isRequired,
+    mass: PropTypes.number.isRequired,
+    minClass: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    extra: PropTypes.shape({
+      max: PropTypes.number,
+      maxClass: PropTypes.string,
+    }),
+  }).isRequired,
   onIncrease: PropTypes.func.isRequired,
   onDecrease: PropTypes.func.isRequired,
-}
+};
 
-export default Module
+export default Module;

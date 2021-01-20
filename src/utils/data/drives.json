@@ -1,5 +1,16 @@
-[
-  {
+{
+  "System Drive": {
+    "name": "System Drive",
+    "cost": 0,
+    "costModifier": true,
+    "power": -1,
+    "powerModifier": true,
+    "mass": -2,
+    "massModifier": true,
+    "minClass": "Fighter",
+    "description": "Does not allow for interstellar drills"
+  },
+  "Spike Drive 1": {
     "name": "Spike Drive 1",
     "cost": 0,
     "costModifier": true,
@@ -10,7 +21,7 @@
     "minClass": "Fighter",
     "description": "Default ship drive"
   },
-  {
+  "Spike Drive 2": {
     "name": "Spike Drive 2",
     "cost": 10000,
     "costModifier": true,
@@ -21,7 +32,7 @@
     "minClass": "Fighter",
     "description": "Upgrade to a drive-2 rating"
   },
-  {
+  "Spike Drive 3": {
     "name": "Spike Drive 3",
     "cost": 20000,
     "costModifier": true,
@@ -32,7 +43,7 @@
     "minClass": "Fighter",
     "description": "Upgrade to a drive-3 rating"
   },
-  {
+  "Spike Drive 4": {
     "name": "Spike Drive 4",
     "cost": 40000,
     "costModifier": true,
@@ -43,7 +54,7 @@
     "minClass": "Frigate",
     "description": "Upgrade to a drive-4 rating"
   },
-  {
+  "Spike Drive 5": {
     "name": "Spike Drive 5",
     "cost": 100000,
     "costModifier": true,
@@ -54,7 +65,7 @@
     "minClass": "Frigate",
     "description": "Upgrade to a drive-5 rating"
   },
-  {
+  "Spike Drive 6": {
     "name": "Spike Drive 6",
     "cost": 500000,
     "costModifier": true,
@@ -65,4 +76,4 @@
     "minClass": "Cruiser",
     "description": "Upgrade to a drive-6 rating"
   }
-]
+}

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 class DisplayShip extends Component {
   render() {
-    let stats = this.props.shipStats;
-    let derivedStats = this.props.derivedStats;
+    let hull = this.props.hull;
+    let stats = this.props.stats;
     let modules = [];
     for (const [key, module] of Object.entries(this.props.modules)) {
       if (module.count > 1) {
@@ -33,33 +33,33 @@ class DisplayShip extends Component {
           <Table bordered size="sm">
             <thead>
               <tr>
-                <th colSpan="4">{stats.hullType}</th>
+                <th colSpan="4">{hull.name}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>HP:</td>
-                <td sm={4}>{stats.hp}</td>
+                <td sm={4}>{hull.hp || 0}</td>
                 <td style={{textAlign: "right"}} sm={3}>Power:</td>
-                <td sm={3}>{stats.power}/{derivedStats.power} free</td>
+                <td sm={3}>{hull.power}/{stats.power} free</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>AC:</td>
-                <td sm={4}>{stats.ac}</td>
+                <td sm={4}>{hull.ac}</td>
                 <td style={{textAlign: "right"}} sm={3}>Mass:</td>
-                <td sm={3}>{stats.mass}/{derivedStats.mass} free</td>
+                <td sm={3}>{hull.mass}/{stats.mass} free</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>Armor:</td>
-                <td sm={4}>{stats.armor}</td>
+                <td sm={4}>{hull.armor}</td>
                 <td style={{textAlign: "right"}} sm={3}>Crew:</td>
-                <td sm={3}>{stats.minCrew}/{stats.maxCrew}</td>
+                <td sm={3}>{hull.minCrew}/{hull.maxCrew}</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right"}} sm={2}>Speed:</td>
-                <td sm={4}>{stats.speed}</td>
+                <td sm={4}>{hull.speed}</td>
                 <td style={{textAlign: "right"}} sm={3}>Hull Class:</td>
-                <td sm={3}>{stats.class}</td>
+                <td sm={3}>{hull.class}</td>
               </tr>
               <tr>
                 <td style={{textAlign: "right", verticalAlign: "middle"}} sm={2}>Fittings:</td>
@@ -82,8 +82,10 @@ class DisplayShip extends Component {
 }
 
 DisplayShip.propTypes = {
-  shipStats: PropTypes.object.isRequired,
-  derivedStats: PropTypes.object.isRequired
+  hull: PropTypes.object,
+  modules: PropTypes.object,
+  weapons: PropTypes.object,
+  stats: PropTypes.object,
 };
 
 export default DisplayShip;

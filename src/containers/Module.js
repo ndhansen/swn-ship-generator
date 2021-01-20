@@ -1,21 +1,34 @@
-import { connect } from 'react-redux';
-import Module from '../components/Module';
-import { addModule, removeModule } from '../actions'
+import { connect } from "react-redux";
+import Module from "../components/Module";
+import { addModule, removeModule } from "../actions";
+import { getShipStats } from "../selectors";
 
-const mapStatetoProps = (state, ownProps) => {
-  let value = 0;
-  if (state.ship.modules[ownProps.name]) {
-    value = state.ship.modules[ownProps.name].count;
+const canAddModule = (stats, module) => {
+  if (stats.power - module.power < 0 || stats.mass - module.mass < 0) {
+    return false;
   }
-  return {
-    value: value,
-    ...ownProps
-  }
+  return true;
 };
 
-const mapDispatchToProps = dispatch => ({
-  onIncrease: data => dispatch(addModule(data)),
-  onDecrease: data => dispatch(removeModule(data))
+const mapStatetoProps = (state, ownProps) => {
+  const stats = getShipStats(state);
+
+  let value = 0;
+  if (state.ship.modules[ownProps.data.name]) {
+    value = state.ship.modules[ownProps.data.name].count;
+  }
+
+  return {
+    modifier: state.costModifier,
+    value: value,
+    canIncrease: canAddModule(stats, ownProps.data),
+    ...ownProps,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrease: (data) => dispatch(addModule(data)),
+  onDecrease: (data) => dispatch(removeModule(data)),
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(Module);

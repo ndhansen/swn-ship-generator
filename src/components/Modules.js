@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
-import HullTypes from './HullTypes'
 import Module from '../containers/Module';
-
-const moduleData = require('../utils/module_data.json');
 
 class Modules extends Component {
   // Some modules cost more money the bigger the ship.
@@ -39,30 +36,14 @@ class Modules extends Component {
     return cost
   }
 
-  static hullSupportsModifier(modifierHull, shipHull) {
-    return HullTypes.getHullValue(modifierHull) <= HullTypes.getHullValue(shipHull);
-  }
-
   render() {
     let rows = [];
-    moduleData.forEach((element, index) => {
-      if (element.extra && (HullTypes.getHullValue(element.extra.maxClass) < HullTypes.getHullValue(this.props.hullClass))) {
-        // This module won't work on a too big ship
-        return;
-      }
-      if (Modules.hullSupportsModifier(element.class, this.props.hullClass)) {
-        rows.push(
-          <Module key={index}
-            name={element.shipFitting}
-            hullClass={element.class}
-            cost={Modules.moduleCostModifier(this.props.hullClass, element.costModifier, element.cost * this.props.modifier)}
-            mass={Modules.powerMassCostModifier(this.props.hullClass, element.massModifier, element.mass)}
-            power={Modules.powerMassCostModifier(this.props.hullClass, element.powerModifier, element.power)}
-            description={element.description}
-            extra={element.extra}
-          />
-        );
-      }
+    this.props.modules.forEach((element, index) => {
+      rows.push(
+        <Module key={index}
+          data={element}
+        />
+      );
     });
 
     return(
@@ -93,8 +74,22 @@ class Modules extends Component {
 }
 
 Modules.propTypes = {
-  hullClass: PropTypes.string.isRequired,
-  modifier: PropTypes.number.isRequired
+  hullClass: PropTypes.string,
+  modifier: PropTypes.number.isRequired,
+  modules: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      cost: PropTypes.number.isRequired,
+      power: PropTypes.number.isRequired,
+      mass: PropTypes.number.isRequired,
+      minClass: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      extra: PropTypes.shape({
+        max: PropTypes.number,
+        maxClass: PropTypes.string,
+      }),
+    }).isRequired
+  ).isRequired,
 }
 
 export default Modules

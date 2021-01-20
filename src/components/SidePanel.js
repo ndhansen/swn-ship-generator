@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class SidePanel extends Component {
   render() {
     return (
-      <div className="sticky">
+      <div>
         <Table bordered className="side-table" size="sm">
           <thead>
             <tr>
@@ -19,15 +19,15 @@ class SidePanel extends Component {
             </tr>
             <tr>
               <td style={{textAlign: "right"}} sm={8}>Mass:</td>
-              <td sm={4}>{this.props.mass}</td>
+              <td sm={4}>{this.props.stats.mass}</td>
             </tr>
             <tr>
               <td style={{textAlign: "right"}} sm={8}>Power:</td>
-              <td sm={4}>{this.props.power}</td>
+              <td sm={4}>{this.props.stats.power}</td>
             </tr>
             <tr>
               <td style={{textAlign: "right"}} sm={8}>Hardpoints:</td>
-              <td sm={4}>{this.props.hardpoints}</td>
+              <td sm={4}>{this.props.stats.hardpoints}</td>
             </tr>
           </tbody>
         </Table>

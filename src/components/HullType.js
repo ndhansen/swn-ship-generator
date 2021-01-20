@@ -7,7 +7,7 @@ class HullType extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.data.hullType}</td>
+        <td>{this.props.data.name}</td>
         <td>{formatCost(this.props.data.cost * this.props.modifier)}</td>
         <td>{this.props.data.speed}</td>
         <td>{this.props.data.armor}</td>
@@ -21,7 +21,8 @@ class HullType extends Component {
         <td>
           <Button
               outline 
-              color="success" 
+              disabled={!this.props.active && !this.props.isSelectable}
+              color="primary" 
               size="sm" 
               onClick={() => this.props.onClick(this.props.data)} 
               active={this.props.active}>
@@ -34,19 +35,21 @@ class HullType extends Component {
 }
 
 HullType.propType = {
-  hullType: PropTypes.string.isRequired,
-  class: PropTypes.string.isRequired,
-  cost: PropTypes.number.isRequired,
-  modifier: PropTypes.number.isRequired,
-  speed: PropTypes.number.isRequired,
-  armor: PropTypes.number.isRequired,
-  hp: PropTypes.number.isRequired,
-  minCrew: PropTypes.number.isRequired,
-  maxCrew: PropTypes.number.isRequired,
-  ac: PropTypes.number.isRequired,
-  power: PropTypes.number.isRequired,
-  mass: PropTypes.number.isRequired,
-  hardpoints: PropTypes.number.isRequired,
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    class: PropTypes.string.isRequired,
+    cost: PropTypes.number.isRequired,
+    modifier: PropTypes.number.isRequired,
+    speed: PropTypes.number.isRequired,
+    armor: PropTypes.number.isRequired,
+    hp: PropTypes.number.isRequired,
+    minCrew: PropTypes.number.isRequired,
+    maxCrew: PropTypes.number.isRequired,
+    ac: PropTypes.number.isRequired,
+    power: PropTypes.number.isRequired,
+    mass: PropTypes.number.isRequired,
+    hardpoints: PropTypes.number.isRequired,
+  }).isRequired,
   active: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 }

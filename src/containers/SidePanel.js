@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 import SidePanel from '../components/SidePanel';
+import { getShipStats } from '../selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    hullType: state.ship.baseStats.class,
-    mass: state.ship.derivedStats.mass,
-    power: state.ship.derivedStats.power,
-    hardpoints: state.ship.derivedStats.hardpoints,
+    hullType: state.ship.hull.class,
+    stats: getShipStats(state),
     ...ownProps
   }
 };

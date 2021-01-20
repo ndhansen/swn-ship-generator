@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Table, Row, Col } from 'reactstrap';
 import HullType from '../containers/HullType';
 
-const hullData = require('../utils/ship_data.json');
-
 class HullTypes extends Component {
   static getHullValue (hullClass) {
     if (hullClass === "Fighter") { return 0; }
@@ -14,7 +12,7 @@ class HullTypes extends Component {
 
   render() {
     let rows = [];
-    hullData.ships.forEach((element, index) => {
+    this.props.hulls.forEach((element, index) => {
       rows.push(
         <HullType key={index}
           data={element}

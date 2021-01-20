@@ -12,11 +12,7 @@ class Drive extends Component {
   selectDrive() {
     if (!this.props.active) {
       let data = {
-        name: this.props.name,
-        cost: this.props.cost,
-        power: this.props.power,
-        mass: this.props.mass,
-        description: this.props.description
+        name: this.props.data.name,
       };
       this.props.onSelect(data);
     } else {
@@ -27,15 +23,16 @@ class Drive extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.name}</td>
-        <td>{formatCost(this.props.cost)}</td>
-        <td>{this.props.power}</td>
-        <td>{this.props.mass}</td>
-        <td>{this.props.description}</td>
+        <td>{this.props.data.name}</td>
+        <td>{formatCost(this.props.data.cost)}</td>
+        <td>{this.props.data.power}</td>
+        <td>{this.props.data.mass}</td>
+        <td>{this.props.data.description}</td>
         <td>
           <Button
             outline
-            color="success"
+            disabled={!this.props.active && !this.props.isSelectable}
+            color="primary"
             size="sm"
             onClick={() => this.selectDrive()}
             active={this.props.active}
@@ -50,11 +47,14 @@ class Drive extends Component {
 
 Drive.propTypes = {
   active: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
-  cost: PropTypes.number.isRequired,
-  power: PropTypes.number.isRequired,
-  mass: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    cost: PropTypes.number.isRequired,
+    power: PropTypes.number.isRequired,
+    mass: PropTypes.number.isRequired,
+    minClass: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
   onSelect: PropTypes.func.isRequired,
   onDeselect: PropTypes.func.isRequired,
 }
