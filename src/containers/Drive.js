@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import Drive from "../components/Drive";
 import { setSpikeDrive, removeSpikeDrive } from "../actions";
-import { getShipStats, getDriveStats } from "../selectors";
+import { getShipStats } from "../selectors";
+import { getDriveStats } from "../selectors/drives";
 
 const isSelectable = (stats, oldDrive, newDrive) => {
   if (

@@ -1,21 +1,25 @@
 import { createSelector } from "reselect";
-import Modules from "../components/Modules";
-
-const driveData = require("../utils/data/drives.json");
-const moduleData = require("../utils/data/modules.json");
+import { moduleDataByHull } from "./modules";
+import { driveDataByHull } from "./drives";
+import { hullDataByDrive } from "./hulls";
+import { weaponData } from "./weapons";
 
 const getModifier = (state) => state.costModifier;
 const getShip = (state) => state.ship;
-const getModules = (state) => state.ship.modules;
-const getWeapons = (state) => state.ship.weapons;
-const getDrive = (state) => state.ship.drive;
-const getHull = (state) => state.ship.hull;
 
 export const calcShipStats = (hull, ship, modifier) => {
-  let cost = hull.cost * modifier;
-  let power = hull.power;
-  let mass = hull.mass;
-  let hardpoints = hull.hardpoints;
+  // Just return if there's no hull yet
+  if (hull?.name === undefined) {
+    return {}
+  }
+
+  // Get hull data
+  const hullData = hullDataByDrive(ship.drive, modifier);
+  const shipHull = hullData[hull.name];
+  let cost = shipHull.cost;
+  let power = shipHull.power;
+  let mass = shipHull.mass;
+  let hardpoints = shipHull.hardpoints;
 
   // Check modules
   const modules = moduleDataByHull(hull, modifier);
@@ -26,13 +30,12 @@ export const calcShipStats = (hull, ship, modifier) => {
   }
 
   // Check weapons
+  const weapons = weaponData(modifier);
   for (let weaponName in ship.weapons) {
-    cost +=
-      ship.weapons[weaponName].cost * ship.weapons[weaponName].count * modifier;
-    power -= ship.weapons[weaponName].power * ship.weapons[weaponName].count;
-    mass -= ship.weapons[weaponName].mass * ship.weapons[weaponName].count;
-    hardpoints -=
-      ship.weapons[weaponName].hardpoints * ship.weapons[weaponName].count;
+    cost += weapons[weaponName].cost * ship.weapons[weaponName].count;
+    power -= weapons[weaponName].power * ship.weapons[weaponName].count;
+    mass -= weapons[weaponName].mass * ship.weapons[weaponName].count;
+    hardpoints -= weapons[weaponName].hardpoints * ship.weapons[weaponName].count;
   }
 
   // Check drive
@@ -65,108 +68,9 @@ export const calcValidShip = (stats, hull) => {
   return true;
 };
 
-export const driveDataByHull = (hull, modifier) => {
-  const drives = {};
-  for (const [name, element] of Object.entries(driveData)) {
-    drives[name] = {
-      name: element.name,
-      cost:
-        Modules.moduleCostModifier(
-          hull.class,
-          element.costModifier,
-          element.cost
-        ) * modifier,
-      power: Modules.powerMassCostModifier(
-        hull.class,
-        element.powerModifier,
-        element.power
-      ),
-      mass: Modules.powerMassCostModifier(
-        hull.class,
-        element.massModifier,
-        element.mass
-      ),
-      minClass: element.minClass,
-      description: element.description,
-    };
-  }
-  return drives;
-};
-
-export const getDriveData = createSelector(
-  [getHull, getModifier],
-  (hull, modifier) => {
-    return driveDataByHull(hull, modifier);
-  }
-);
-
-export const moduleDataByHull = (hull, modifier) => {
-  const modules = {};
-  for (const [name, element] of Object.entries(moduleData)) {
-    modules[name] = {
-      name: element.name,
-      cost:
-        Modules.moduleCostModifier(
-          hull.class,
-          element.costModifier,
-          element.cost
-        ) * modifier,
-      power: Modules.powerMassCostModifier(
-        hull.class,
-        element.powerModifier,
-        element.power
-      ),
-      mass: Modules.powerMassCostModifier(
-        hull.class,
-        element.massModifier,
-        element.mass
-      ),
-      minClass: element.minClass,
-      description: element.description,
-      extra: element.extra,
-    };
-  }
-  return modules;
-};
-
-export const getModuleData = createSelector(
-  [getHull, getModifier],
-  (hull, modifier) => {
-    return moduleDataByHull(hull, modifier);
-  }
-);
-
 export const getShipStats = createSelector(
   [getShip, getModifier],
   (ship, modifier) => {
     return calcShipStats(ship.hull, ship, modifier);
-  }
-);
-
-export const getDriveStats = createSelector(
-  [getDrive, getModifier, getHull],
-  (shipDrive, modifier, hull) => {
-    if (
-      Object.entries(shipDrive).length === 0 &&
-      shipDrive.constructor === Object
-    ) {
-      return {};
-    }
-    const drives = driveDataByHull(hull, modifier);
-    return drives[shipDrive.name];
-  }
-);
-
-export const getModuleStats = createSelector(
-  [getModules, getModuleData],
-  (modules, moduleData) => {
-    const shipModules = {};
-    for (const [name, module] of Object.entries(modules)) {
-      shipModules[name] = {
-        ...moduleData[name],
-        count: module.count,
-      };
-    }
-    return shipModules;
   }
 );

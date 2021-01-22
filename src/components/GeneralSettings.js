@@ -15,13 +15,25 @@ class GeneralSettings extends Component {
         <FormGroup row>
           <Label sm={2} for="name">Ship name</Label>
           <Col sm="auto">
-            <Input type="text" name="Ship Name" id="name" onInput={(e) => this.props.setName(e.target.value)} />
+            <Input
+              type="text"
+              name="Ship Name"
+              id="name"
+              onInput={(e) => this.props.setName(e.target.value)}
+              value={this.props.name}
+            />
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label sm={2} for="costModifier">Ship scarcity</Label>
           <Col sm="auto">
-            <select className="form-control" id="costModifier" ref="costModifier" name="cost modifier" onChange={() => this.props.setCostModifier(this.refs.costModifier.value)}>
+            <select
+              className="form-control"
+              id="costModifier"
+              name="cost modifier"
+              value={this.props.costModifier}
+              onChange={(event) => this.props.setCostModifier(Number(event.target.value))}
+            >
               <option value={CostModifiers.UNCOMMON}>Uncommon</option>
               <option value={CostModifiers.COMMON}>Common</option>
               <option value={CostModifiers.FREQUENT}>Frequent</option>
@@ -34,7 +46,10 @@ class GeneralSettings extends Component {
 }
 
 GeneralSettings.propTypes = {
-  setCostModifier: PropTypes.func.isRequired
+  name: PropTypes.string.isRequired,
+  costModifier: PropTypes.number.isRequired,
+  setName: PropTypes.func.isRequired,
+  setCostModifier: PropTypes.func.isRequired,
 };
 
 export default GeneralSettings;

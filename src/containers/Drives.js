@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Drives from "../components/Drives";
-import { getShipStats, getDriveData } from "../selectors";
+import { getShipStats } from "../selectors";
+import { getDriveData } from "../selectors/drives";
 import { hullSupportsElement } from "./Modules";
 
 const mapStatetoProps = (state, ownProps) => {
@@ -8,7 +9,6 @@ const mapStatetoProps = (state, ownProps) => {
     hullClass: state.ship.hull.class,
     modifier: state.costModifier,
     speed: getShipStats(state).speed,
-    // drives: driveData.filter(
     drives: Object.entries(getDriveData(state))
       .map(([, element]) => element)
       .filter(

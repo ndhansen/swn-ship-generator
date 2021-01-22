@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import HullType from "../components/HullType";
 import { setHullType, removeSpikeDrive } from "../actions";
-import { calcShipStats, calcValidShip, getDriveStats, getModuleStats } from "../selectors";
+import { getDriveStats } from "../selectors/drives";
+import { getModuleStats } from "../selectors/modules";
+import { calcShipStats, calcValidShip } from "../selectors";
 import { hullSupportsElement } from "./Modules";
 
 const isSelectable = (hull, ship, drive, modules) => {

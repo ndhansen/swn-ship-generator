@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 import HullTypes from "../components/HullTypes";
-
-const shipData = require("../utils/data/ships.json");
+import { getHullData } from "../selectors/hulls";
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    hulls: shipData,
+    hulls: Object.entries(getHullData(state)).map(([, hull]) => hull),
     ...ownProps,
   };
 };

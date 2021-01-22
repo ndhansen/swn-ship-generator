@@ -11,10 +11,13 @@ class Weapon extends Component {
   }
 
   weaponChanged(count) {
+    const data = {
+      name: this.props.data.name,
+    }
     if (count > this.props.value && this.props.canIncrease) {
-      this.props.onIncrease(this.props.data);
+      this.props.onIncrease(data);
     } else if (count < this.props.value) {
-      this.props.onDecrease(this.props.data);
+      this.props.onDecrease(data);
     }
   }
 
@@ -24,11 +27,11 @@ class Weapon extends Component {
         {this.props.value}
         <AddCircleIcon
           color={this.props.canIncrease ? "primary" : "disabled"}
-          onClick={(e) => {this.weaponChanged(this.props.value + 1)}}
+          onClick={() => {this.weaponChanged(this.props.value + 1)}}
         />
         <RemoveCircleIcon
           color={this.props.value > 0 ? "primary" : "disabled"}
-          onClick={(e) => {this.weaponChanged(this.props.value - 1)}}
+          onClick={() => {this.weaponChanged(this.props.value - 1)}}
         />
       </div>
     )

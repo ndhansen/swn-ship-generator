@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import HullTypes from "../components/HullTypes";
 import Modules from "../components/Modules";
-import { getModuleData } from "../selectors";
+import { getModuleData } from "../selectors/modules";
 
 export const hullSupportsElement = (element, shipHull) => {
   // If no ship hull, return false

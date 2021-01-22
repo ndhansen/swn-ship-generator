@@ -1,5 +1,5 @@
-[
-  {
+{
+  "Strike Fighter": {
     "name": "Strike Fighter",
     "cost": 200000,
     "speed": 5,
@@ -14,7 +14,7 @@
     "class": "Fighter",
     "type": "ship"
   },
-  {
+  "Shuttle": {
     "name": "Shuttle",
     "cost": 200000,
     "speed": 3,
@@ -29,7 +29,7 @@
     "class": "Fighter",
     "type": "ship"
   },
-  {
+  "Free Merchant": {
     "name": "Free Merchant",
     "cost": 500000,
     "speed": 3,
@@ -44,7 +44,7 @@
     "class": "Frigate",
     "type": "ship"
   },
-  {
+  "Patrol Boat": {
     "name": "Patrol Boat",
     "cost": 2500000,
     "speed": 4,
@@ -59,7 +59,7 @@
     "class": "Frigate",
     "type": "ship"
   },
-  {
+  "Corvette": {
     "name": "Corvette",
     "cost": 4000000,
     "speed": 2,
@@ -74,7 +74,7 @@
     "class": "Frigate",
     "type": "ship"
   },
-  {
+  "Heavy Frigate": {
     "name": "Heavy Frigate",
     "cost": 7000000,
     "speed": 1,
@@ -89,7 +89,7 @@
     "class": "Frigate",
     "type": "ship"
   },
-  {
+  "Bulk Freighter": {
     "name": "Bulk Freighter",
     "cost": 5000000,
     "speed": 0,
@@ -104,7 +104,7 @@
     "class": "Cruiser",
     "type": "ship"
   },
-  {
+  "Fleet Cruiser": {
     "name": "Fleet Cruiser",
     "cost": 10000000,
     "speed": 1,
@@ -119,7 +119,7 @@
     "class": "Cruiser",
     "type": "ship"
   },
-  {
+  "Battleship": {
     "name": "Battleship",
     "cost": 50000000,
     "speed": 0,
@@ -134,7 +134,7 @@
     "class": "Capital",
     "type": "ship"
   },
-  {
+  "Carrier": {
     "name": "Carrier",
     "cost": 60000000,
     "speed": 0,
@@ -149,7 +149,7 @@
     "class": "Capital",
     "type": "ship"
   },
-  {
+  "Small Station": {
     "name": "Small Station",
     "cost": 5000000,
     "speed": null,
@@ -164,7 +164,7 @@
     "class": "Cruiser",
     "type": "station"
   },
-  {
+  "Large Station": {
     "name": "Large Station",
     "cost": 40000000,
     "speed": null,
@@ -179,4 +179,4 @@
     "class": "Capital",
     "type": "station"
   }
-]
+}

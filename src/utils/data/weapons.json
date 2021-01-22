@@ -1,5 +1,5 @@
-[
-  {
+{
+  "Multifocal Laser": {
     "name": "Multifocal Laser",
     "cost": 100000,
     "damage": "1d4",
@@ -13,7 +13,7 @@
       "ap": 20
     }
   },
-  {
+  "Reaper Battery": {
     "name": "Reaper Battery",
     "cost": 100000,
     "damage": "3d4",
@@ -26,7 +26,7 @@
       "type": ["clumsy"]
     }
   },
-  {
+  "Fractal Impact Charge": {
     "name": "Fractal Impact Charge",
     "cost": 200000,
     "damage": "2d6",
@@ -42,7 +42,7 @@
       "ammoCost": 500
     }
   },
-  {
+  "Polyspectral MES Beam": {
     "name": "Polyspectral MES Beam",
     "cost": 2000000,
     "damage": "2d4",
@@ -56,7 +56,7 @@
       "ap": 25
     }
   },
-  {
+  "Sandthrower": {
     "name": "Sandthrower",
     "cost": 50000,
     "damage": "2d4",
@@ -69,7 +69,7 @@
       "type": ["flak"]
     }
   },
-  {
+  "Flak Emitter Battery": {
     "name": "Flak Emitter Battery",
     "cost": 500000,
     "damage": "2d6",
@@ -83,7 +83,7 @@
       "ap": 10
     }
   },
-  {
+  "Torpedo Launcher": {
     "name": "Torpedo Launcher",
     "cost": 500000,
     "damage": "3d8",
@@ -99,7 +99,7 @@
       "ammoCost": 25000
     }
   },
-  {
+  "Charged Particle Caster": {
     "name": "Charged Particle Caster",
     "cost": 800000,
     "damage": "3d6",
@@ -113,7 +113,7 @@
       "ap": 15
     }
   },
-  {
+  "Plasma Beam": {
     "name": "Plasma Beam",
     "cost": 700000,
     "damage": "3d6",
@@ -127,7 +127,7 @@
       "ap": 10
     }
   },
-  {
+  "Mag Spike Array": {
     "name": "Mag Spike Array",
     "cost": 1000000,
     "damage": "2d6 + 2",
@@ -143,7 +143,7 @@
       "ammoCost": 5000
     }
   },
-  {
+  "Nuclear Missiles": {
     "name": "Nuclear Missiles",
     "cost": 50000,
     "damage": "Special",
@@ -158,7 +158,7 @@
       "ammoCost": 5000
     }
   },
-  {
+  "Spinal Beam Cannon": {
     "name": "Spinal Beam Cannon",
     "cost": 1500000,
     "damage": "3d10",
@@ -172,7 +172,7 @@
       "ap": 15
     }
   },
-  {
+  "Smart Cloud": {
     "name": "Smart Cloud",
     "cost": 2000000,
     "damage": "3d10",
@@ -185,7 +185,7 @@
       "type": ["clumsy", "cloud"]
     }
   },
-  {
+  "Gravcannon": {
     "name": "Gravcannon",
     "cost": 2000000,
     "damage": "4d6",
@@ -199,7 +199,7 @@
       "ap": 20
     }
   },
-  {
+  "Spike Inversion Projector": {
     "name": "Spike Inversion Projector",
     "cost": 2500000,
     "damage": "3d8",
@@ -213,7 +213,7 @@
       "ap": 15
     }
   },
-  {
+  "Vortex Tunnel Inductor": {
     "name": "Vortex Tunnel Inductor",
     "cost": 5000000,
     "damage": "3d20",
@@ -227,7 +227,7 @@
       "ap": 20
     }
   },
-  {
+  "Mass Cannon": {
     "name": "Mass Cannon",
     "cost": 5000000,
     "damage": "2d20",
@@ -243,7 +243,7 @@
       "ammoCost": 50000
     }
   },
-  {
+  "Lightning Charge Mantle": {
     "name": "Lightning Charge Mantle",
     "cost": 4000000,
     "damage": "1d20",
@@ -257,7 +257,7 @@
       "ap": 5
     }
   },
-  {
+  "Singularity Gun": {
     "name": "Singularity Gun",
     "cost": 20000000,
     "damage": "5d20",
@@ -271,4 +271,4 @@
       "ap": 25
     }
   }
-]
+}

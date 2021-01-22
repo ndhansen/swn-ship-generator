@@ -4,6 +4,13 @@ import formatCost from '../utils/formatCost';
 import PropTypes from 'prop-types';
 
 class HullType extends Component {
+  setHull() {
+    const data = {
+      name: this.props.data.name,
+    }
+    this.props.onClick(data);
+  }
+
   render() {
     return (
       <tr>

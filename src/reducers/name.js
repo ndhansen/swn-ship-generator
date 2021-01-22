@@ -1,10 +1,11 @@
 const name = (state = "", action) => {
   switch (action.type) {
-    case 'SET_NAME':
+    case 'SET_NAME': {
       return action.name;
-  
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }
 

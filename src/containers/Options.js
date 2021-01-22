@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import Options from '../components/Options';
-import { exportShip, importShip } from '../actions';
+import { exportShip, importShip, clear } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ship: state.ship,
+    state: state,
     ...ownProps
   }
 };
 
 const mapDispatchToProps = dispatch => ({
   onExport: () => dispatch(exportShip()),
-  onImport: () => dispatch(importShip()),
+  onImport: (state) => dispatch(importShip(state)),
+  clearAll: () => dispatch(clear()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Options)

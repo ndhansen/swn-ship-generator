@@ -1,12 +1,16 @@
 export const CostModifiers = {
-  UNCOMMON: 'UNCOMMON',
-  COMMON: 'COMMON',
-  FREQUENT: 'FREQUENT',
+  UNCOMMON: 1,
+  COMMON: 0.5,
+  FREQUENT: 0.25,
 };
 
 export const setCostModifier = modifier => ({
   type: 'SET_COST_MODIFIER',
   modifier
+});
+
+export const clear = () => ({
+  type: 'CLEAR',
 });
 
 export const setName = name => ({
@@ -52,6 +56,7 @@ export const exportShip = () => ({
   type: 'EXPORT_SHIP',
 })
 
-export const importShip = () => ({
+export const importShip = state => ({
   type: 'IMPORT_SHIP',
+  state
 })

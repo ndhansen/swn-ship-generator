@@ -15,8 +15,8 @@ const canAddWeapon = (stats, weapon) => {
 };
 
 const mapStatetoProps = (state, ownProps) => {
+  const stats = getShipStats(state);
   let value = 0;
-  let stats = getShipStats(state);
   if (state.ship.weapons[ownProps.data.name]) {
     value = state.ship.weapons[ownProps.data.name].count;
   }
