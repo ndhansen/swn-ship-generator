@@ -74,8 +74,6 @@ class Modules extends Component {
 }
 
 Modules.propTypes = {
-  hullClass: PropTypes.string,
-  modifier: PropTypes.number.isRequired,
   modules: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

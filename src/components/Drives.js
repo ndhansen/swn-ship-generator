@@ -46,8 +46,6 @@ class Drives extends Component {
 }
 
 Drives.propTypes = {
-  hullClass: PropTypes.string,
-  modifier: PropTypes.number.isRequired,
   speed: PropTypes.number,
   drives: PropTypes.arrayOf(
     PropTypes.shape({

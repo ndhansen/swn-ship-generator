@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Table, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Weapon from '../containers/Weapon';
+import Defense from '../containers/Defense';
 
-class Weapons extends Component {
+class Defenses extends Component {
   render() {
     let rows = [];
-    this.props.weapons.forEach((element, index) => {
+    this.props.defenses.forEach((element, index) => {
       rows.push(
-        <Weapon key={index}
+        <Defense key={index}
           data={element}
         />
       );
@@ -18,21 +18,18 @@ class Weapons extends Component {
       <div>
         <Row>
           <Col sm="auto">
-            <h3>Weapons</h3>
+            <h3>Defenses</h3>
           </Col>
         </Row>
         <Table className="centerTable" striped size="sm">
           <thead>
             <tr>
-              <th style={{width: "22.32%"}}>Ship Weapon</th>
+              <th style={{width: "20.32%"}}>Ship Defense</th>
               <th style={{width: "11.01%"}}>Cost</th>
-              <th style={{width: "9.17%"}}>Dmg</th>
-              <th style={{width: "7.3%"}}>Power</th>
-              <th style={{width: "6.15%"}}>Mass</th>
-              <th style={{width: "6.92%"}}>Hard.</th>
-              <th style={{width: "3.27%"}}>TL</th>
-              <th style={{width: "22.13%"}}>qualities</th>
-              <th style={{width: "12.33%"}}></th>
+              <th style={{width: "6.3%"}}>Power</th>
+              <th style={{width: "5.15%"}}>Mass</th>
+              <th style={{width: "30.13%"}}>Effect</th>
+              <th style={{width: "6.33%"}}></th>
             </tr>
           </thead>
           <tbody>
@@ -40,29 +37,31 @@ class Weapons extends Component {
           </tbody>
         </Table>
       </div>
-    )
+    );
   }
 }
 
-Weapons.propTypes = {
-  weapons: PropTypes.arrayOf(
+Defenses.propTypes = {
+  defenses: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       cost: PropTypes.number.isRequired,
-      damage: PropTypes.string.isRequired,
       power: PropTypes.number.isRequired,
       mass: PropTypes.number.isRequired,
-      hardpoints: PropTypes.number.isRequired,
       minClass: PropTypes.string.isRequired,
-      techLevel: PropTypes.number.isRequired,
+      description: PropTypes.string.isRequired,
+      extra: PropTypes.shape({
+        max: PropTypes.number,
+      }),
       qualities: PropTypes.shape({
-        type: PropTypes.arrayOf(PropTypes.string.isRequired),
-        ap: PropTypes.number,
+        type: PropTypes.arrayOf(
+          PropTypes.string.isRequired,
+        ),
         ammo: PropTypes.number,
         ammoCost: PropTypes.number,
-      }).isRequired,
+      }),
     })
   ).isRequired,
 }
 
-export default Weapons
+export default Defenses

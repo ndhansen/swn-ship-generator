@@ -4,6 +4,11 @@ import formatCost from '../utils/formatCost';
 import PropTypes from 'prop-types';
 
 class HullType extends Component {
+  constructor() {
+    super();
+    this.setHull = this.setHull.bind(this);
+  }
+
   setHull() {
     const data = {
       name: this.props.data.name,
@@ -15,7 +20,7 @@ class HullType extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td>{formatCost(this.props.data.cost * this.props.modifier)}</td>
+        <td>{formatCost(this.props.data.cost)}</td>
         <td>{this.props.data.speed}</td>
         <td>{this.props.data.armor}</td>
         <td>{this.props.data.hp}</td>
@@ -57,6 +62,7 @@ HullType.propType = {
     mass: PropTypes.number.isRequired,
     hardpoints: PropTypes.number.isRequired,
   }).isRequired,
+  isSelectable: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 }

@@ -19,7 +19,6 @@ const mapStatetoProps = (state, ownProps) => {
   }
 
   return {
-    modifier: state.costModifier,
     value: value,
     canIncrease: canAddModule(stats, ownProps.data),
     ...ownProps,

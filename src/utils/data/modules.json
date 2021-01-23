@@ -216,7 +216,14 @@
     "mass": 1,
     "massModifier": true,
     "minClass": "Fighter",
-    "description": "Doubles maximum crew size"
+    "description": "Doubles maximum crew size",
+    "changes": [
+      {
+        "target": "maxCrew",
+        "amount": 2,
+        "action": "MULT"
+      }
+    ]
   },
   "Extended Medbay": {
     "name": "Extended Medbay",

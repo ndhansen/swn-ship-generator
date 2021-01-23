@@ -31,6 +31,7 @@ export const moduleDataByHull = (hull, modifier) => {
       minClass: element.minClass,
       description: element.description,
       extra: element.extra,
+      changes: element.changes,
     };
   }
   return modules;
@@ -56,3 +57,12 @@ export const getModuleStats = createSelector(
     return shipModules;
   }
 );
+
+export const changeFunction = (action) => {
+  switch (action) {
+    case "MULT":
+      return (value, number) => value * number;
+    default:
+      return (value, number) => value + number;
+  }
+};

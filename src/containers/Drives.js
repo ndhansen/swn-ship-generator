@@ -6,8 +6,6 @@ import { hullSupportsElement } from "./Modules";
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    hullClass: state.ship.hull.class,
-    modifier: state.costModifier,
     speed: getShipStats(state).speed,
     drives: Object.entries(getDriveData(state))
       .map(([, element]) => element)

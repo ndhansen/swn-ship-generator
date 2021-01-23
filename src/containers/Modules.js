@@ -27,8 +27,6 @@ export const hullSupportsElement = (element, shipHull) => {
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    hullClass: state.ship.hull.class,
-    modifier: state.costModifier,
     modules: Object.entries(getModuleData(state))
       .map(([, element]) => element)
       .filter((element) => hullSupportsElement(element, state.ship.hull.class)),

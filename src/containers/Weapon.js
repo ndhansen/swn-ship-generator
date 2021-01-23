@@ -22,7 +22,6 @@ const mapStatetoProps = (state, ownProps) => {
   }
   return {
     value: value,
-    modifier: state.costModifier,
     canIncrease: canAddWeapon(stats, ownProps.data),
     ...ownProps,
   };

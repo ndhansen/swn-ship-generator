@@ -1,14 +1,17 @@
 import { Form, Container, Row, Col } from 'reactstrap';
 import React, { Component } from 'react';
-import '../utils/App.css'
+import '../utils/App.css';
 import GeneralSettings from '../containers/GeneralSettings';
-import DisplayShip from '../containers/DisplayShip';
+import SmallShipDisplay from '../containers/SmallShipDisplay';
 import HullTypes from '../containers/HullTypes';
 import Drives from '../containers/Drives';
 import Modules from '../containers/Modules';
 import Weapons from '../containers/Weapons';
 import SidePanel from '../containers/SidePanel';
 import Options from '../containers/Options';
+import Defenses from '../containers/Defenses';
+import Ammos from '../containers/Ammos';
+import ShipDisplay from '../containers/ShipDisplay';
 
 class App extends Component {
   render() {
@@ -22,7 +25,10 @@ class App extends Component {
               <Drives />
               <Modules />
               <Weapons />
-              <DisplayShip />
+              <Defenses />
+              <Ammos />
+              <SmallShipDisplay />
+              <ShipDisplay />
             </Form>
           </Container>
         </Col>

@@ -54,7 +54,7 @@ class Weapon extends Component {
       }
     });
 
-    let cost = `${formatCost(this.props.data.cost * this.props.modifier)}`;
+    let cost = `${formatCost(this.props.data.cost)}`;
     if (this.props.data.qualities.type.includes("ammo")) {
       cost += ` / ${formatCost(this.props.data.qualities.ammoCost)}`;
     }

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Button, Row, Col, Input } from "reactstrap";
 import { confirmAlert } from "react-confirm-alert";
+import PropTypes from 'prop-types';
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 class Options extends Component {
@@ -75,9 +76,7 @@ class Options extends Component {
               id="uploadAnchorElement"
               style={{display: "none"}}
               onChange={this.importData}
-            >
-              Hidden file import
-            </Input>
+            />
           </Col>
           <Col xs="auto">
             <Button color="primary" onClick={this.clear}>
@@ -91,3 +90,10 @@ class Options extends Component {
 }
 
 export default Options;
+
+Options.propType = {
+  state: PropTypes.object.isRequired,
+  onExport: PropTypes.func.isRequired,
+  onImport: PropTypes.func.isRequired,
+  clearAll: PropTypes.func.isRequired,
+}

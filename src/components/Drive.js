@@ -47,6 +47,7 @@ class Drive extends Component {
 
 Drive.propTypes = {
   active: PropTypes.bool.isRequired,
+  isSelectable: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     name: PropTypes.string.isRequired,
     cost: PropTypes.number.isRequired,

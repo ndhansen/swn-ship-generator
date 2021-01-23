@@ -6,7 +6,7 @@ import { getModuleStats } from "../selectors/modules";
 import { calcShipStats, calcValidShip } from "../selectors";
 import { hullSupportsElement } from "./Modules";
 
-const isSelectable = (hull, ship, drive, modules) => {
+const isSelectable = (hull, ship, modifier, drive, modules) => {
   // If there's no selected hull, make all available.
   if (!ship.hull) {
     return true;
@@ -31,16 +31,16 @@ const isSelectable = (hull, ship, drive, modules) => {
     }
   }
 
-  let newStats = calcShipStats(hull, ship);
+  let newStats = calcShipStats(hull, ship, modifier);
   return calcValidShip(newStats, hull);
 };
 
 const mapStateToProps = (state, ownProps) => {
   const drive = getDriveStats(state);
   const modules = getModuleStats(state);
+  const modifier = state.costModifier;
   return {
-    modifier: state.costModifier,
-    isSelectable: isSelectable(ownProps.data, state.ship, drive, modules),
+    isSelectable: isSelectable(ownProps.data, state.ship, modifier, drive, modules),
     active: state.ship.hull?.name === ownProps.data.name,
     ...ownProps,
   };
