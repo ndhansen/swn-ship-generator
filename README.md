@@ -15,12 +15,12 @@ It was built with `create-react-app`, so run it with `yarn start` or `npm start`
 - [x] Modules
   - [ ] Better module search and add system
 - [x] Weapons
-- [ ] Ammo
-- [ ] Defenses
-- [ ] Import / Export
-- [ ] Persistent storage to browser and / or file
+- [x] Ammo
+- [x] Defenses
+- [x] Import / Export
+- [x] Persistent storage to browser and / or file
 - [ ] Persistent storage via tiny url
-- [ ] Cost calculations
+- [x] Cost calculations
 - [ ] Cargo space calculations
 - [ ] Lifeboat
 - [ ] Skill checks table

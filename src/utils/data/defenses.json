@@ -73,7 +73,7 @@
   },
   "Foxer Drones": {
     "name": "Foxer Drones",
-    "cost": 10,
+    "cost": 10000,
     "costModifier": true,
     "power": 2,
     "mass": 1,
