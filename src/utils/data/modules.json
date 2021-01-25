@@ -386,7 +386,10 @@
     "mass": 0,
     "massModifier": false,
     "minClass": "Frigate",
-    "description": "Survey and exploration equipment for the crew"
+    "description": "Survey and exploration equipment for the crew",
+    "extra": {
+      "max": 1
+    }
   },
   "Shiptender mount": {
     "name": "Shiptender mount",
