@@ -18,6 +18,11 @@
   padding-right: 1rem;
 }
 
+.non-padded-table {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .centerTable {
   text-align: center;
 }

@@ -71,7 +71,7 @@ class Module extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td>{formatCost(this.props.data.cost)}</td>
+        <td style={{textAlign: "right"}}>{formatCost(this.props.data.cost)}</td>
         <td>{this.props.data.power}</td>
         <td>{this.props.data.mass}</td>
         <td>{this.props.data.description}</td>

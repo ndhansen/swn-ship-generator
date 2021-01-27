@@ -37,6 +37,7 @@
     "techLevel": 4,
     "qualities": {
       "type": ["ap", "ammo"],
+      "name": "Fractal Impact Charge",
       "ap": 15,
       "ammo": 4,
       "ammoCost": 500
@@ -94,6 +95,7 @@
     "techLevel": 4,
     "qualities": {
       "type": ["ap", "ammo"],
+      "name": "Torpedo",
       "ap": 20,
       "ammo": 4,
       "ammoCost": 25000
@@ -138,6 +140,7 @@
     "techLevel": 4,
     "qualities": {
       "type": ["flak", "ap", "ammo"],
+      "name": "Mag Spike",
       "ap": 10,
       "ammo": 5,
       "ammoCost": 5000
@@ -154,6 +157,7 @@
     "techLevel": 4,
     "qualities": {
       "type": ["ammo"],
+      "name": "Nuclear Missile",
       "ammo": 5,
       "ammoCost": 5000
     }
@@ -238,6 +242,7 @@
     "techLevel": 4,
     "qualities": {
       "type": ["ap", "ammo"],
+      "name": "Mass Cannon Projectile",
       "ap": 20,
       "ammo": 4,
       "ammoCost": 50000

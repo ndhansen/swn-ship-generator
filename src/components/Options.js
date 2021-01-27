@@ -58,7 +58,7 @@ class Options extends Component {
         <Row>
           <Col xs="auto">
             <Button color="primary" onClick={this.export}>
-              Export
+              Save
             </Button>
             <a href="." id="downloadAnchorElement" style={{display: "none"}}>
               Hidden download button
@@ -69,7 +69,7 @@ class Options extends Component {
               color="primary"
               onClick={this.triggerImport}
             >
-              Import
+              Load
             </Button>
             <Input
               type="file"

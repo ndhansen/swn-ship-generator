@@ -22,21 +22,21 @@ It was built with `create-react-app`, so run it with `yarn start` or `npm start`
 - [ ] Persistent storage via tiny url
 - [x] Cost calculations
 - [ ] Cargo space calculations
-- [ ] Lifeboat
-- [ ] Skill checks table
-- [ ] Build time
-- [ ] Ship stats
-- [ ] Checklist
-- [ ] Small stuff
-  - [ ] Buying robots for robot crew
-  - [ ] Workshops can be a smaller size than the ship hull class
-  - [ ] Show vehicle transport fittings on the stats sheet
-  - [ ] Add system drive
-  - [ ] Show TL rating of ship
   - [ ] Show hidden cargo capacity
-- [ ] Warnings
+- [ ] **Ship display**
+  - [ ] Lifeboat
+  - [ ] Skill checks table
+  - [ ] Build time
+  - [ ] Ship stats
+  - [ ] Show TL rating of ship
+  - [ ] Show vehicle transport fittings on the stats sheet
+- [ ] **Warnings**
   - [ ] More auto-targeting systems than weapons
   - [ ] Shiptender without spike drive
   - [ ] Not enough lifeboats
   - [ ] More luxury cabins than possible crew
-
+- [ ] Checklist of things you haven't added but still need to
+- [ ] Small stuff
+  - [ ] Buying robots for robot crew
+  - [ ] Workshops can be a smaller size than the ship hull class
+  - [x] Add system drive

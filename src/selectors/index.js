@@ -54,7 +54,7 @@ export const calcShipStats = (hull, ship, modifier) => {
   for (const defenseName in ship.defenses) {
     stats.cost += defenses[defenseName].cost * ship.defenses[defenseName].count;
     stats.power -=
-      defenses[defenseName].mass * ship.defenses[defenseName].count;
+      defenses[defenseName].power * ship.defenses[defenseName].count;
     stats.mass -= defenses[defenseName].mass * ship.defenses[defenseName].count;
     let changes = defenses[defenseName].changes;
     if (changes) {

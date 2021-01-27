@@ -61,8 +61,10 @@ export const getModuleStats = createSelector(
 export const changeFunction = (action) => {
   switch (action) {
     case "MULT":
-      return (value, number) => value * number;
+      return (value, number, count) => value * (number + count - 1);
+    case "EXP": // TODO: for the exodus bay
+      return (value, number, count) => value * (number * count);
     default:
-      return (value, number) => value + number;
+      return (value, number, count) => value + (number * count);
   }
 };

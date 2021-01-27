@@ -27,6 +27,13 @@ export const getHullData = createSelector(
   }
 );
 
+export const getRawHullStats = createSelector(
+  [getHull, getHullData],
+  (hull, hullData) => {
+    return hullData[hull.name];
+  }
+)
+
 export const getHullStats = createSelector(
   [getHull, getHullData, getDefensesStats, getModuleStats],
   (shipHull, hullData, defenses, modules) => {
@@ -47,12 +54,11 @@ export const getHullStats = createSelector(
     for (const [, module] of Object.entries(modules)) {
       if (module.changes) {
         for (let change of module.changes) {
-          for (let i = 0; i < module.count; i++) {
-            hull[change.target] = changeFunction(change.action)(
-              hull[change.target],
-              change.amount
-            );
-          }
+          hull[change.target] = changeFunction(change.action)(
+            hull[change.target],
+            change.amount,
+            module.count
+          )
         }
       }
     }

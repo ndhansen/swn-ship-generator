@@ -32,7 +32,7 @@ class Defense extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td>{cost}</td>
+        <td style={{textAlign: "right"}}>{cost}</td>
         <td>{this.props.data.power}</td>
         <td>{this.props.data.mass}</td>
         <td>{this.props.data.description}</td>

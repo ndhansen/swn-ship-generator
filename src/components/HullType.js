@@ -20,7 +20,7 @@ class HullType extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td>{formatCost(this.props.data.cost)}</td>
+        <td style={{textAlign: "right"}}>{formatCost(this.props.data.cost)}</td>
         <td>{this.props.data.speed}</td>
         <td>{this.props.data.armor}</td>
         <td>{this.props.data.hp}</td>

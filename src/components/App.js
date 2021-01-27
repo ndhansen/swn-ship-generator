@@ -28,14 +28,22 @@ class App extends Component {
               <Defenses />
               <Ammos />
               <SmallShipDisplay />
-              <ShipDisplay />
             </Form>
           </Container>
         </Col>
         <Col sm="2">
           <Row className="sticky">
-            <SidePanel />
-            <Options />
+            <Col>
+              <Row>
+                <SidePanel />
+              </Row>
+              <Row style={{marginBottom: "1rem"}}>
+                <Options />
+              </Row>
+              <Row style={{marginBottom: "1rem"}}>
+                <ShipDisplay />
+              </Row>
+            </Col>
           </Row>
         </Col>
       </Row>

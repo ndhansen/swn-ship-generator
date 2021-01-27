@@ -27,7 +27,7 @@ class Ammo extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td>{cost}</td>
+        <td style={{textAlign: "right"}}>{cost}</td>
         <td>{this.props.data.qualities.ammo}</td>
         <td>{costPerShot}</td>
         <td>1</td>
