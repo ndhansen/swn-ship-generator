@@ -1,5 +1,6 @@
 {
-  "name": "swn-ship-generator-redux",
+  "name": "swn-ship-generator",
+  "homepage": "https://ndhansen.github.com/swn-ship-generator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,6 +23,8 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
