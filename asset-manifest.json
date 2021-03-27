@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/swn-ship-generator/static/css/main.a0fe07fb.chunk.css",
-    "main.js": "/swn-ship-generator/static/js/main.ce21e6d7.chunk.js",
-    "main.js.map": "/swn-ship-generator/static/js/main.ce21e6d7.chunk.js.map",
+    "main.js": "/swn-ship-generator/static/js/main.cf4f268e.chunk.js",
+    "main.js.map": "/swn-ship-generator/static/js/main.cf4f268e.chunk.js.map",
     "runtime-main.js": "/swn-ship-generator/static/js/runtime-main.3d6b3b2c.js",
     "runtime-main.js.map": "/swn-ship-generator/static/js/runtime-main.3d6b3b2c.js.map",
-    "static/css/2.9ec2c4ec.chunk.css": "/swn-ship-generator/static/css/2.9ec2c4ec.chunk.css",
-    "static/js/2.08041f4d.chunk.js": "/swn-ship-generator/static/js/2.08041f4d.chunk.js",
-    "static/js/2.08041f4d.chunk.js.map": "/swn-ship-generator/static/js/2.08041f4d.chunk.js.map",
+    "static/css/2.93d9ca7f.chunk.css": "/swn-ship-generator/static/css/2.93d9ca7f.chunk.css",
+    "static/js/2.3b044c98.chunk.js": "/swn-ship-generator/static/js/2.3b044c98.chunk.js",
+    "static/js/2.3b044c98.chunk.js.map": "/swn-ship-generator/static/js/2.3b044c98.chunk.js.map",
     "index.html": "/swn-ship-generator/index.html",
-    "static/css/2.9ec2c4ec.chunk.css.map": "/swn-ship-generator/static/css/2.9ec2c4ec.chunk.css.map",
+    "static/css/2.93d9ca7f.chunk.css.map": "/swn-ship-generator/static/css/2.93d9ca7f.chunk.css.map",
     "static/css/main.a0fe07fb.chunk.css.map": "/swn-ship-generator/static/css/main.a0fe07fb.chunk.css.map",
-    "static/js/2.08041f4d.chunk.js.LICENSE.txt": "/swn-ship-generator/static/js/2.08041f4d.chunk.js.LICENSE.txt"
+    "static/js/2.3b044c98.chunk.js.LICENSE.txt": "/swn-ship-generator/static/js/2.3b044c98.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3d6b3b2c.js",
-    "static/css/2.9ec2c4ec.chunk.css",
-    "static/js/2.08041f4d.chunk.js",
+    "static/css/2.93d9ca7f.chunk.css",
+    "static/js/2.3b044c98.chunk.js",
     "static/css/main.a0fe07fb.chunk.css",
-    "static/js/main.ce21e6d7.chunk.js"
+    "static/js/main.cf4f268e.chunk.js"
   ]
 }
