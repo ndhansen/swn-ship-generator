@@ -282,3 +282,16 @@ class ShipDisplay extends Component {
 }
 
 export default ShipDisplay
+
+ShipDisplay.propTypes = {
+  name: PropTypes.string,
+  rawHull: PropTypes.object.isRequired,
+  hull: PropTypes.object.isRequired,
+  cargo: PropTypes.object.isRequired,
+  drive: PropTypes.object.isRequired,
+  modules: PropTypes.object.isRequired,
+  weapons: PropTypes.object.isRequired,
+  defenses: PropTypes.object.isRequired,
+  ammo: PropTypes.object.isRequired,
+  stats: PropTypes.object.isRequired,
+}
