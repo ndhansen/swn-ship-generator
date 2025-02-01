@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button } from "reactstrap";
 import PropTypes from "prop-types";
 import formatCost from "../utils/formatCost";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 class Module extends Component {
   constructor() {
@@ -71,7 +71,7 @@ class Module extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td style={{textAlign: "right"}}>{formatCost(this.props.data.cost)}</td>
+        <td style={{ textAlign: "right" }}>{formatCost(this.props.data.cost)}</td>
         <td>{this.props.data.power}</td>
         <td>{this.props.data.mass}</td>
         <td>{this.props.data.description}</td>

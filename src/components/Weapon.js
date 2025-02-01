@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import formatCost from '../utils/formatCost';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 
 class Weapon extends Component {
   constructor() {
@@ -27,11 +27,11 @@ class Weapon extends Component {
         {this.props.value}
         <AddCircleIcon
           color={this.props.canIncrease ? "primary" : "disabled"}
-          onClick={() => {this.weaponChanged(this.props.value + 1)}}
+          onClick={() => { this.weaponChanged(this.props.value + 1) }}
         />
         <RemoveCircleIcon
           color={this.props.value > 0 ? "primary" : "disabled"}
-          onClick={() => {this.weaponChanged(this.props.value - 1)}}
+          onClick={() => { this.weaponChanged(this.props.value - 1) }}
         />
       </div>
     )
@@ -49,7 +49,7 @@ class Weapon extends Component {
         qualities += type;
       }
 
-      if (index !== length-1) {
+      if (index !== length - 1) {
         qualities += ", ";
       }
     });
@@ -62,7 +62,7 @@ class Weapon extends Component {
     return (
       <tr>
         <td>{this.props.data.name}</td>
-        <td style={{textAlign: "right"}}>{cost}</td>
+        <td style={{ textAlign: "right" }}>{cost}</td>
         <td>{this.props.data.damage}</td>
         <td>{this.props.data.power}</td>
         <td>{this.props.data.mass}</td>
